@@ -5,6 +5,10 @@ body {
     background-color: #1a1a1a;
 }
 
+.app {
+    display: flex;
+}
+
 .sidebar {
     width: 256px;
     height: 1452px;
