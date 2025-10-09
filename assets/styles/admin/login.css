@@ -32,7 +32,6 @@ body {
 
 .input-svg {
     position: absolute;
-    left: -1px;
     bottom: 80px;
     left: 7px;
 
@@ -91,6 +90,7 @@ body {
     position: relative;
     width: 547px;
     height: 64px;
+    margin-top:16px;
 }
 
 .input-box input {
@@ -128,4 +128,3 @@ body {
 .input-box .eye {
     right: 16px;
 }
-
