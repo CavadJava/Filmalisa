@@ -1,0 +1,165 @@
+body {
+    background-color: #1D1D1D;
+    height: 946px;
+}
+/* .login-page {
+    margin: 0 auto;
+} */
+.login-icon {
+    text-align: center;
+    padding-top: 90px;
+}
+.login-title {
+    text-align: center;
+    font-size: 70px;
+    font-weight: 400;
+    line-height: 80px;
+    color: #C3C8D4;
+    font-family: "Numans", sans-serif;
+}
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    
+}
+.input-box {
+    position: relative;
+    text-align: center;
+   
+    
+
+}
+.input-svg {
+    position: absolute;
+    left: -1px;
+    bottom: 80px;
+    left: 7px;
+    
+    
+   
+}
+.input-user {
+    height: 64px;
+    width: 547px;
+    padding: 12px 12px 12px 45px;
+     border-radius: 12px;
+    border: 1px solid #323B54;
+    padding: 12px 16px;
+    background-color: #0000001A;
+}
+.password-input {
+    height: 64px;
+    width: 547px;
+    padding-top: 16px;
+    padding-bottom: 40px;
+     border-radius: 12px;
+    border: 1px solid #323B54;
+    padding: 12px 16px;
+    background-color: #0000001A;
+   
+
+}
+.toogle {
+    position: absolute;
+    
+}
+.button {
+    height: 56px;
+    width: 547px;
+    border: 2px solid #9B51E0;
+    border-radius: 12px;
+    padding: 16px 32px;
+    background-color: #9B51E0;
+    color: white;
+    margin-top: 40px;
+    margin: 0 auto;
+    margin-left: 358px;
+    
+    
+}
+.form {
+  width: 300px;
+  margin: 50px auto;
+  font-family: 'Numans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* mərkəzləşdirir */
+  gap: 16px;
+} 
+
+/* s icon üçün yer */
+  /* border: 1px solid #323B54;
+  border-radius: 12px;
+  outline: none;
+  font-size: 16px;
+  transition: 0.3s;
+  box-sizing: border-box;
+  background-color: #0000001A;
+} */
+
+/* .input-box input:focus {
+  border-color: #007bff;
+}
+
+/* Sol SVG */
+/* .input-box .input-svg,
+.input-box .toogle {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  pointer-events: none; /* kliklənməsini deaktiv edir */
+/* } */ 
+
+/* Sağ SVG (göz) */
+/* .input-box .eye {
+  position: absolute;
+  top: 50%; */
+  /* right: 10px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}  */
+  .input-box {
+  position: relative;
+  width: 547px;
+  height: 64px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  padding-left: 50px;   /* sol ikon üçün boşluq */
+  padding-right: 50px;  /* sağ ikon üçün boşluq (password input üçün) */
+  font-size: 18px;       /* oxunaqlı font */
+  border-radius: 8px;
+  border: 1px solid #323B54;
+  box-sizing: border-box;
+  background-color: #0000001A;
+  
+}
+
+.input-box .input-svg,
+.input-box .toogle,
+.input-box .eye {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;   /* SVG ölçüsünü saxlayırıq */
+  height: 28px;
+}
+
+.input-box .input-svg,
+.input-box .toogle {
+  left: 16px;    /* sol künc */
+}
+
+.input-box .eye {
+  right: 16px;   /* sağ künc */
+}
+
