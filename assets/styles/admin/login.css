@@ -85,46 +85,14 @@ body {
   font-family: 'Numans', sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center; /* mərkəzləşdirir */
+  align-items: center; 
   gap: 16px;
 } 
 
-/* s icon üçün yer */
-  /* border: 1px solid #323B54;
-  border-radius: 12px;
-  outline: none;
-  font-size: 16px;
-  transition: 0.3s;
-  box-sizing: border-box;
-  background-color: #0000001A;
-} */
 
-/* .input-box input:focus {
-  border-color: #007bff;
-}
 
-/* Sol SVG */
-/* .input-box .input-svg,
-.input-box .toogle {
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
-  pointer-events: none; /* kliklənməsini deaktiv edir */
-/* } */ 
 
-/* Sağ SVG (göz) */
-/* .input-box .eye {
-  position: absolute;
-  top: 50%; */
-  /* right: 10px;
-  transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}  */
+
   .input-box {
   position: relative;
   width: 547px;
@@ -134,9 +102,9 @@ body {
 .input-box input {
   width: 100%;
   height: 100%;
-  padding-left: 50px;   /* sol ikon üçün boşluq */
-  padding-right: 50px;  /* sağ ikon üçün boşluq (password input üçün) */
-  font-size: 18px;       /* oxunaqlı font */
+  padding-left: 50px;   
+  padding-right: 50px;  
+  font-size: 18px;       
   border-radius: 8px;
   border: 1px solid #323B54;
   box-sizing: border-box;
@@ -150,16 +118,16 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 28px;   /* SVG ölçüsünü saxlayırıq */
+  width: 28px;   
   height: 28px;
 }
 
 .input-box .input-svg,
 .input-box .toogle {
-  left: 16px;    /* sol künc */
+  left: 16px;    
 }
 
 .input-box .eye {
-  right: 16px;   /* sağ künc */
+  right: 16px;   
 }
 
