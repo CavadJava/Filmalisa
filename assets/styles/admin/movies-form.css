@@ -7,30 +7,27 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
-    font-family: "Raleway "sans-serif;
+    font-family: 'Raleway', 'sans-serif';
     font-size: 14px;
     margin: 0 auto;
     padding: 29px;
-   
-    
 }
+
 .form {
     padding-top: 57px;
 }
- .form-input {
+
+.form-input {
     width: 550px;
     height: 54px;
     border-radius: 12px;
     border: 1px solid #323B54;
     padding: 8px 16px;
     background-color: #0000001A;
-    
-     
-    
-    
-} 
+}
+
 .form-overview {
-     width: 549px;
+    width: 549px;
     height: 121px;
     border-radius: 12px;
     border: 1px solid #323B54;
@@ -38,8 +35,9 @@
     background-color: #0000001A;
 
 }
+
 .form-category {
-     width: 550px;
+    width: 550px;
     height: 54px;
     border-radius: 12px;
     border: 1px solid #323B54;
@@ -48,51 +46,52 @@
     position: absolute;
 
 }
+
 .form-svg {
     position: relative;
-    left: 520px ;
+    left: 520px;
     top: 12px;
 }
+
 .img-form {
     padding-left: 84px;
     padding-bottom: 500px;
 }
 
 
-
- .submit-form {
-  display: flex;
-  align-items: center;       
-  justify-content: space-between; 
-  margin-top: 20px;
+.submit-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
 .check-area {
-  display: flex;
-  align-items: center; 
-  gap: 8px;            
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .checkbox {
-  font-weight: 400;
-  color: #475069;
-  line-height: 16px;
+    font-weight: 400;
+    color: #475069;
+    line-height: 16px;
 }
 
 .input-check {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
 }
 
 .btn-form {
-  width: 92px;
-  height: 32px;
-  border-radius: 4px;
-  border: 1px solid #9B51E0;
-  background-color: #9B51E0;
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
+    width: 92px;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid #9B51E0;
+    background-color: #9B51E0;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
 }
 
