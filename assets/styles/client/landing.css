@@ -1,0 +1,23 @@
+@import url("landing/header.css");
+@import url("landing/unlimited.css");
+@import url("landing/tv.css");
+@import url("landing/devices.css");
+@import url("landing/kids.css");
+@import url("landing/contact.css");
+@import url("landing/faq.css");
+@import url("landing/footer.css");
+
+:root {
+    --bg: #0b0b0f;
+    --text: #fff;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Poppins', 'Raleway', sans-serif;
+}
+
+
+
+
