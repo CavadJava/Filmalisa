@@ -2,7 +2,13 @@
 @import '../../styles/admin/common/header.css';
 @import '../../styles/admin/common/main-content.css';
 
+:root {
+    --whiteColor: #fff;
+}
 .menu-item-active{
     background-color: #58209D;
-    color: #fff;
+    color: var(--whiteColor);
+}
+.modal-alert-text {
+    color: var(--whiteColor);
 }
