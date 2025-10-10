@@ -5,31 +5,30 @@
     background-color: #171616;
     margin: 0 auto;
     margin-top: 163px;
-   
 }
+
 .category-input {
-   margin-top: 90px;
-   margin-left: 37px;
-   
-  
-   padding: 8px 16px;
- 
-  width: 467px;
-   height: 54px;
+    margin-top: 90px;
+    margin-left: 37px;
+
+
+    padding: 8px 16px;
+
+    width: 467px;
+    height: 54px;
     padding-left: 50px;
     padding-right: 50px;
 
-    
+
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
     border-radius: 12px;
     border: 1px solid #323B54;
-    
-   
-    
-    
+
+
     background-color: #0000001A;
 }
+
 .category-btn {
     height: 56px;
     width: 464px;
