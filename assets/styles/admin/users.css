@@ -8,7 +8,7 @@
 }
 
 
-.users-table-container {
+.page-table-container {
   width: 80%;
   margin: 60px auto;
   background: #fff;
@@ -17,19 +17,19 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.users-table {
+.page-table {
   width: 100%;
   border-collapse: collapse;
   color: #333;
 }
 
-.users-table thead {
+.page-table thead {
   background-color: #000000d3;
   color: #fff;
   border-bottom: 2px solid #fff;
 }
 
-.users-table th {
+.page-table th {
   text-align: left;
   font-weight: 600;
   padding: 14px 18px;
@@ -37,17 +37,17 @@
   color: #fff;
 }
 
-.users-table td {
+.page-table td {
   padding: 14px 18px;
   border-bottom: 1px solid #eee;
   font-size: 15px;
 }
 
-.users-table tr:last-child td {
+.page-table tr:last-child td {
   border-bottom: none;
 }
 
-.users-table tr:hover {
+.page-table tr:hover {
   background-color: #f9f9f9;
   transition: background 0.2s;
 }
