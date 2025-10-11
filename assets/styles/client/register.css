@@ -139,9 +139,9 @@ body {
   font-size: 0.8rem;
   color: #99A3BE;
   margin-bottom: 20px;
+    text-decoration: underline;
 }
 
 .login-link a {
   color: #99A3BE;
-  text-decoration: underline;
 }
