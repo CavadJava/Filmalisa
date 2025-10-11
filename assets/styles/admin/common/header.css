@@ -12,8 +12,6 @@
 }
 
 .main-content .header .header-left{
-    padding-top: 30px;
-    padding-left: 24px;
     display: flex;
     flex-direction: column;
     gap: 10px;

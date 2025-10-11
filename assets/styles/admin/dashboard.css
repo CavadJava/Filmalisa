@@ -9,9 +9,12 @@
 
 .main-content {
   flex: 1;
-  padding: 25px;
 }
 
+.dashboard-container{
+  margin-top: 79px;
+  margin-left: 24px;
+}
 
 .dashboard-card {
   border: none;
