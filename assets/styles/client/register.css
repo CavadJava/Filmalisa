@@ -3,12 +3,12 @@ body {
     height: 946px;
 }
 
-.login-icon {
+.register-icon {
     text-align: center;
     padding-top: 90px;
 }
 
-.login-title {
+.register-title {
     text-align: center;
     font-size: 70px;
     font-weight: 400;
@@ -17,7 +17,7 @@ body {
     font-family: "Numans", sans-serif;
 }
 
-.login-form {
+.register-form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,7 +75,7 @@ body {
 
 }
 
-.login-form {
+.register-form {
     width: 300px;
     margin: 50px auto;
     font-family: 'Numans', sans-serif;
@@ -129,13 +129,19 @@ body {
     right: 16px;
 }
 
+.login-box{
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+}
+
 .login-link {
   font-size: 0.8rem;
-  color: #999;
+  color: #99A3BE;
   margin-bottom: 20px;
 }
 
 .login-link a {
-  color: #8a2be2;
-  text-decoration: none;
+  color: #99A3BE;
+  text-decoration: underline;
 }
