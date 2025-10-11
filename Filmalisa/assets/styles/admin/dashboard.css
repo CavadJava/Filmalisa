@@ -1,0 +1,51 @@
+@import '../../styles/admin/common/sidebar.css';
+@import '../../styles/admin/common/header.css';
+@import '../../styles/admin/common/main-content.css';
+
+.menu-item-active{
+    background-color: #58209D;
+    color: #fff;
+}
+
+.main-content {
+  flex: 1;
+  padding: 25px;
+}
+
+
+.dashboard-card {
+  border: none;
+  border-radius: 15px;
+  padding: 25px 20px;
+  color: white;
+  text-align: left;
+  background: #1c1c1c;
+  width: 233px;
+  height: 140px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.dashboard-card h5 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #bbb;
+  margin: 0;
+}
+
+.dashboard-card h3 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 8px;
+  color: #fff;
+}
+
+/* Hover Effekti */
+.dashboard-card:hover {
+  background: #7b4eff;
+  box-shadow: 0 0 15px rgba(123, 78, 255, 0.6);
+  transform: translateY(-5px);
+}

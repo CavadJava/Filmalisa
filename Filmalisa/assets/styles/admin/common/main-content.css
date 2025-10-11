@@ -1,0 +1,17 @@
+.main-content .table-container {
+    margin-top: 96px;
+    padding: 10 24px;
+}
+.main-content .table-container .movie-image img {
+    width: 29px;
+    height: 39px;
+}
+.crop {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.table thead tr {
+    background-color: #1E1E1E;
+}
