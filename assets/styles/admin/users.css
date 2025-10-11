@@ -1,0 +1,53 @@
+@import '../../styles/admin/common/sidebar.css';
+@import '../../styles/admin/common/header.css';
+@import '../../styles/admin/common/main-content.css';
+
+.menu-item-active{
+    background-color: #58209D;
+    color: #fff;
+}
+
+
+.page-table-container {
+  width: 80%;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.page-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #333;
+}
+
+.page-table thead {
+  background-color: #000000d3;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.page-table th {
+  text-align: left;
+  font-weight: 600;
+  padding: 14px 18px;
+  font-size: 15px;
+  color: #fff;
+}
+
+.page-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
+
+.page-table tr:last-child td {
+  border-bottom: none;
+}
+
+.page-table tr:hover {
+  background-color: #f9f9f9;
+  transition: background 0.2s;
+}
