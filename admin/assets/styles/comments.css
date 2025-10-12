@@ -1,6 +1,6 @@
-@import '../../styles/admin/common/sidebar.css';
-@import '../../styles/admin/common/header.css';
-@import '../../styles/admin/common/main-content.css';
+@import 'common/sidebar.css';
+@import 'common/header.css';
+@import 'common/main-content.css';
 
 .menu-item-active{
     background-color: #58209D;

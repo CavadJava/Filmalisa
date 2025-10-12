@@ -8,7 +8,7 @@
 .unlimited-bg {
     position: absolute;
     inset: 0;
-    background: url('assets/images/heroimg.svg');
+    background: url('../../images/heroimg.svg');
     z-index: -1
 }
 
