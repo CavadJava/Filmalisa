@@ -91,3 +91,9 @@
     letter-spacing: 0;
     color: #FFFFFF;
 }
+
+.menu-item a {
+    text-decoration: none;
+    list-style: none;
+    color: #FFFFFF;
+}
