@@ -7,6 +7,10 @@
     color: #fff;
 }
 
+.modal-header,.modal-footer{
+    border: 1px solid rgba(155, 81, 224, 0.15);
+}
+
 
 .page-table-container {
     width: 80%;
