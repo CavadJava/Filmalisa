@@ -15,3 +15,75 @@
     width: 8px;
     height: 8px;
 }
+
+/* hero section */
+.hero-section {
+    width: 632px;
+    height: 550px; /* Specific height based on visual estimate */
+    background-size: cover;
+    background-position: center 20%;
+}
+
+
+.hero-badge {
+    width: 120px;
+    height: 30px;
+    background-color: #1D1D1D80;
+    color: #0FEFFD;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.hero-info {
+    max-width: 632px;
+    margin-left: 40px;
+
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-bottom: 50px;
+}
+
+.card-text {
+    color: #FFFFFF;
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+
+p.hero-detail {
+    font-size: 16px;
+    font-weight: 400;
+    color: #FFFFFF;
+    text-align: justify;
+}
+
+.watch-button {
+    width: 168px;
+    height: 44px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 25px;
+    color: white;
+}
+
+
+.watch-button:hover {
+    background-color: #0000001F;
+    border: 1px deeppink solid;
+    border-radius: 10px;
+    padding: 10px 25px;
+    color: white;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
