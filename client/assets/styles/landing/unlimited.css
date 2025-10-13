@@ -42,7 +42,7 @@ body {
     font-family: "Raleway", sans-serif ;
     background: 
        linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.8) 100%),
-        url(/assets/images/heroimg.svg) no-repeat center/cover;
+        url(/client/assets/images/heroimg.svg) no-repeat center/cover;
     background-size: cover; 
     
     margin: 0;
