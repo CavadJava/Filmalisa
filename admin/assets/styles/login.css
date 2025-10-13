@@ -1,6 +1,7 @@
 body {
     background-color: #1D1D1D;
     height: 946px;
+    font-family: "Raleway", sans-serif;
 }
 
 .login-icon {
@@ -14,7 +15,7 @@ body {
     font-weight: 400;
     line-height: 80px;
     color: #C3C8D4;
-    font-family: "Numans", sans-serif;
+    
 }
 
 .login-form {
@@ -72,6 +73,9 @@ body {
     background-color: #9B51E0;
     color: white;
     margin-top: 40px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
 
 }
 
@@ -100,8 +104,8 @@ body {
     padding-right: 50px;
 
     font-weight: 400;
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    
     border-radius: 8px;
     border: 1px solid #323B54;
     box-sizing: border-box;

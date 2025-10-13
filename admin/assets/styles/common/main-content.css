@@ -5,6 +5,7 @@
 .main-content .table-container .movie-image img {
     width: 29px;
     height: 39px;
+
 }
 .crop {
     max-width: 200px;
@@ -14,4 +15,28 @@
 }
 .table thead tr {
     background-color: #1E1E1E;
+    font-weight: 400;
+    font-size: 14px;
+}
+tbody tr {
+    font-weight: 400;
+    font-size: 14px;
+}
+.header-left span {
+    font-weight: 500;
+    font-style: medium;
+    font-size: 13px;
+    line-height: 100%;
+}
+.header-left h1 {
+    font-weight: 500;
+    font-style: medium;
+    font-size: 20px;
+    line-height: 100%;
+}
+.role {
+    font-weight: 500;
+    font-style: medium;
+    font-size: 12px;
+    line-height: 13px;
 }
