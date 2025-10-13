@@ -1,0 +1,17 @@
+#heroCarousel {
+    margin-left: 56px;
+    height: 600px; /* photo-nun enine uygun olmalidir */
+}
+#heroCarousel .carousel-item img {
+    /* Photo-nu Container-in enini uygun etmek */
+    width: 100%;
+    /* Carousel-de photo-larin hundurluyunu teyin edir */
+    height: 600px; /* Adjust this value as needed for your design */
+    /* Photo-nu korlamadan browser uygunlasdirmag */
+    object-fit: cover;
+}
+
+.carousel-indicators .heroCarouselBtn {
+    width: 8px;
+    height: 8px;
+}

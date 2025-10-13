@@ -10,25 +10,52 @@
 </head>
 <body>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <a href="#" class="active-icon">
-            <i class="fas icon-logo-custom"></i>
-        </a>
-        <a href="#">
-            <i class="fas icon-home-custom"></i>
-        </a>
-        <a href="#">
-            <i class="fas icon-home3-custom"></i>
-        </a>
-        <a href="#">
-            <i class="fas icon-home4-custom"></i>
-        </a>
-        <div class="icon-separator"></div>
-        <a href="#">
-            <i class="fas icon-home5-custom"></i>
-        </a>
-    </div>
+<div class="sidebar">
+    <a href="#" class="active-icon">
+        <i class="fas icon-logo-custom"></i>
+    </a>
+    <a href="#">
+        <i class="fas icon-home-custom"></i>
+    </a>
+    <a href="#">
+        <i class="fas icon-home3-custom"></i>
+    </a>
+    <a href="#">
+        <i class="fas icon-home4-custom"></i>
+    </a>
+    <div class="icon-separator"></div>
+    <a href="#">
+        <i class="fas icon-home5-custom"></i>
+    </a>
+</div>
 
+<div class="main-content">
+
+    <!-- Hero Carousel Section -->
+    <div id="heroCarousel" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0"
+                    class="heroCarouselBtn rounded-circle active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"
+                    class="heroCarouselBtn rounded-circle" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"
+                    class="heroCarouselBtn rounded-circle" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <img src="/client/assets/images/home/header-godzilla_kong_bg.jpg" class="d-block w-100 carousel-custom-img" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/client/assets/images/home/header-godzilla_kong_bg.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/client/assets/images/home/header-godzilla_kong_bg.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
