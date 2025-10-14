@@ -3,6 +3,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: #1a1a1a;
+    font-family: "Raleway", sans-serif;
 }
 
 .app {
@@ -25,6 +26,9 @@ body {
     align-items: center;
     margin: 0 34px 68px 20px;
     gap: 12.24px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 80px;
 }
 
 .company-logo svg {
@@ -60,6 +64,7 @@ nav .menu-item span {
     font-size: 14px;
     line-height: 13px;
     letter-spacing: 0;
+    font-style: 400;
 }
 
 .hover-1:hover {

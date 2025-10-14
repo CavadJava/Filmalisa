@@ -9,22 +9,22 @@
 
 .category-input {
     margin-top: 90px;
-    margin-left: 37px;
+    margin-left: 37px; 
 
 
-    padding: 8px 16px;
+    padding: 8px 16px; 
 
     width: 467px;
     height: 54px;
-    padding-left: 50px;
+    /* padding-left: 50px; */
     padding-right: 50px;
 
 
     font-size: 14px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Raleway', sans-serif;
     border-radius: 12px;
     border: 1px solid #323B54;
-
+    font-weight: 400;
 
     background-color: #0000001A;
 }
@@ -39,4 +39,7 @@
     color: white;
     margin-top: 77px;
     margin-left: 40px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
 }
