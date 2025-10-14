@@ -1,0 +1,25 @@
+.Footer-landing {
+    border-top: 8px solid #232323;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 307px;
+    padding: 72px 168px;
+    gap: 10px;
+   
+}
+.landing-list {
+    font-weight: 400;
+    font-style: 400;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: underline;
+    color: Grey;
+    
+    
+}
+.list li {
+margin-bottom: 16px;
+margin-right: 30px;
+}
