@@ -1,0 +1,35 @@
+.accordion-button::after {
+  filter: invert(1); /* "+" işarəsini ağ göstərir */
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #222;
+  color: #fff;
+  box-shadow: none;
+}
+.accordion-button {
+  background-color: #2A2A2A;
+
+}
+.accordion-item {
+  width: 700px;
+}
+.accordion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 109px;
+ 
+}
+.accordion-button:not(.collapsed) {
+  background-color: #222;
+}
+
+.accordion-icon {
+  transition: transform 0.3s;
+  font-size: 1.2rem;
+}
+.accordion-button::after {
+  display: none;
+}
