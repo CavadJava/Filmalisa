@@ -1,0 +1,9 @@
+.accordion-button::after {
+  filter: invert(1); /* "+" işarəsini ağ göstərir */
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #222;
+  color: #fff;
+  box-shadow: none;
+}
