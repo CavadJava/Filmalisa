@@ -1,0 +1,76 @@
+.icon-logo-custom {
+    background-image: url('/client/assets/images/sidebar/logo.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 56px; 
+    height: 56px; 
+    display: inline-block;
+}
+
+.icon-home-custom {
+    background-image: url('/client/assets/images/sidebar/home1.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 56px; 
+    height: 56px; 
+    display: inline-block;
+}
+
+.icon-home3-custom {
+    background-image: url('/client/assets/images/sidebar/home2.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 56px; 
+    height: 56px; 
+    display: inline-block;
+}
+
+.icon-home4-custom {
+    background-image: url('/client/assets/images/sidebar/home3.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 56px; 
+    height: 56px; 
+    display: inline-block;
+}
+
+.icon-home5-custom {
+    background-image: url('/client/assets/images/sidebar/home4.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 56px; 
+    height: 56px;
+    display: inline-block; 
+}
+
+.sidebar {
+    width: 56px;
+    height: 200vh;
+    background-color: #1D1D1D80; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    z-index: 1030;
+    border-right: 1px solid #333;
+}
+
+.sidebar a {
+    display: block;
+    color: #ccc;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.sidebar a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+.sidebar .active-icon {
+    color: #d946ef;
+    font-size: 2rem;
+    margin-bottom: 1px;
+}

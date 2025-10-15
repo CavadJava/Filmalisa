@@ -1,0 +1,24 @@
+@import url("search-panel/sidebar.css");
+
+:root {
+    --bg: #0b0b0f;
+    /*--text: #fff;*/
+}
+
+body {
+    background-color: #1a1a1a;
+    /*color: var(--text);*/
+    font-family: 'Poppins', 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#search-input{
+    border: 1px solid #808080;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+#search-input::placeholder {
+    color: #BCBCBC
+}
