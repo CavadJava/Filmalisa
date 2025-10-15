@@ -1,0 +1,79 @@
+@import url("sidebar.css");
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+
+/* COLORS */
+:root {
+    --bg: #1a1a1a;
+    --sidebar-bg: #141414;
+    --text: #aaa;
+    --white: #fff;
+    --accent: #9B51E0;
+    --accent-dark: #6a41e0;
+}
+
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+}
+
+
+/* MAIN */
+.main {
+    flex: 1;
+    margin-left: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg);
+}
+
+/* CONTENT */
+.content {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Illustration */
+.illustration img {
+    width: 260px;
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Heading */
+h1 {
+    color: var(--white);
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* Text */
+p {
+    color: #8E95A9;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+/* Button */
+.btn {
+    background-color: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 26px;
+    border: 2px #9B51E0;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+
+
+
+
+
