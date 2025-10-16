@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../../global/bootstrap.css">
     <link rel="stylesheet" href="../assets/styles/comment-forms.css">
     <link rel="stylesheet" href="../assets/styles/comments.css">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
     <title>Comment</title>
 </head>
 <body>
@@ -105,7 +108,7 @@
                     <th>Film</th>
                     <th>Comment</th>
                     <th>Edit</th>
-                    <th>Operation</th>
+                    <th>Remove</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -115,10 +118,11 @@
                     <td>mmurad063</td>
                     <th>Email</th>
                     <th>Film</th>
-                    <td>Action</td>
                     <td>
-                        <button class="action-btn commentsModal" data-bs-toggle="modal" data-bs-target="#commentsModal">Edit</button>
-                        <button class="action-btn commentsModalAlert" data-bs-toggle="modal" data-bs-target="#commentsModalAlert"> Remove</button>
+                        <button class="action-btn commentsModal" data-bs-toggle="modal" data-bs-target="#commentsModal"><i class="fa-solid fa-pen-to-square text-dark" style="cursor: pointer; "></i></button>
+                    </td>
+                    <td>
+                        <button class="action-btn commentsModalAlert" data-bs-toggle="modal" data-bs-target="#commentsModalAlert"> <i class="fa-solid fa-trash text-dark" style="cursor: pointer; "></i></button>
                     </td>
                 </tr>
                 </tbody>
