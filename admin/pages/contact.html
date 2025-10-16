@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../../global/bootstrap.css">
     <link rel="stylesheet" href="../assets/styles/contact.css">
     <link rel="stylesheet" href="../assets/styles/contact-form.css">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
     <title>Contact Us</title>
 </head>
 <body>
@@ -102,22 +105,36 @@
                     <th>ID</th>
                     <th>Username</th>
                     <th>Email</th>
-                    <th>Reason</th>
-                    <th>View</th>
+                    <th>Member</th>
                     <th>Remove</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>1</td>
-                    <td>mmurad064</td>
-                    <td>Murad Mammadov</td>
-                    <td>Team member</td>
+                    <td>matanat-developer</td>
+                    <td>Matanat</td>
+                    <td>Developer</td>
                     <td>
-                        <button data-bs-toggle="modal" >View</button>
+                        <button class="action-btn contactModalAlert" data-bs-toggle="modal" data-bs-target="#contactModalAlert"> <i class="fa-solid fa-trash text-dark" style="cursor: pointer; "></i></button>
                     </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>mmurad064-developer</td>
+                    <td>Murad</td>
+                    <td>Developer</td>
                     <td>
-                        <button  data-bs-toggle="modal" data-bs-target="#contactModalAlert">remove</button>
+                        <button class="action-btn contactModalAlert" data-bs-toggle="modal" data-bs-target="#contactModalAlert"> <i class="fa-solid fa-trash text-dark" style="cursor: pointer; "></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>aygun-developer</td>
+                    <td>Aygun</td>
+                    <td>Developer</td>
+                    <td>
+                        <button class="action-btn contactModalAlert" data-bs-toggle="modal" data-bs-target="#contactModalAlert"> <i class="fa-solid fa-trash text-dark" style="cursor: pointer; "></i></button>
                     </td>
                 </tr>
                 </tbody>
@@ -133,14 +150,12 @@
                     <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <input class="contact-input contact-form" type="text" name="contact-form name"
-                           placeholder="name">
                     <input class="contact-input contact-form" type="text" name="contact-form username"
                            placeholder="username">
                     <input class="contact-input contact-form" type="text" name="contact-form email"
                            placeholder="email">
-                    <input class="contact-input contact-form" type="text" name="contact-form reason"
-                           placeholder="reason">
+                    <input class="contact-input contact-form" type="text" name="contact-form member"
+                           placeholder="member">
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Submit</button>
