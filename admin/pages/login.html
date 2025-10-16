@@ -32,7 +32,7 @@
 <main>
     <div class="login-form">
 
-<!--        <form>-->
+        <form action="dashboard.html" onsubmit="auth(); return false;">
             <div class="input-box">
 
                 <svg class="input-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -75,11 +75,11 @@
                 <input type="password" id="form-password" name="password" placeholder="password" class="password-input">
                 <button class="button loginBtn" type="submit">login</button>
             </div>
-<!--        </form>-->
+        </form>
 
     </div>
 </main>
 
-
+<script src="../assets/javascript/auth.js"></script>
 </body>
 </html>
