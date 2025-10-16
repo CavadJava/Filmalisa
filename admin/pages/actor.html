@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../../global/bootstrap.css">
     <link rel="stylesheet" href="../assets/styles/actor.css">
     <link rel="stylesheet" href="../assets/styles/actor-form.css">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
     <title>Actor</title>
 </head>
 <body>
@@ -88,7 +91,7 @@
                 <h1>Actor</h1>
             </div>
             <div class="header-right">
-                <button class="create-btn btn btn-primary" data-bs-toggle="modal" data-bs-target="#actorModal">Create</button>
+                <button class="create-btn btn btn-primary" data-bs-toggle="modal" data-bs-target="#editActorModalAlert">Create</button>
                 <div class="user-profile">
                     <img src="https://images.icon-icons.com/3446/PNG/512/account_profile_user_avatar_icon_219236.png" width="31px" height="31px" alt="Admin">
                     <span class="role">Admin</span>
@@ -114,10 +117,10 @@
                     <td>Murad</td>
                     <td>Mammadov</td>
                     <td>
-                        <button class="action-btn" data-bs-toggle="modal" data-bs-target="#actorModal">Edit</button>
+                        <button class="action-btn editActorModalAlert" data-bs-toggle="modal" data-bs-target="#editActorModalAlert"> <i class="fa-solid fa-pen-to-square text-dark" style="cursor: pointer; "></i></button>
                     </td>
                     <td>
-                        <button data-bs-toggle="modal" data-bs-target="#actorModalAlert"> Remove</button>
+                        <button class="action-btn actorModalAlert" data-bs-toggle="modal" data-bs-target="#actorModalAlert"> <i class="fa-solid fa-trash text-dark" style="cursor: pointer; "></i></button>
                     </td>
                 </tr>
                 </tbody>
@@ -125,7 +128,7 @@
         </div>
 
         <!-- Create Actor Modal -->
-        <div class="modal fade" id="actorModal" tabindex="-1" aria-labelledby="actorModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editActorModalAlert" tabindex="-1" aria-labelledby="editActorModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content actor-form">
                     <div class="modal-header">
