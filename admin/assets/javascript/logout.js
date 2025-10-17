@@ -18,9 +18,3 @@ logoutBtn.addEventListener(`click`, () => {
         updateButton()
     }
 })
-
-// logoutBtn.addEventListener(`click`, () => {
-//     localStorage.removeItem(`token`);
-
-//     window.location.href = `/login.html`;
-// })
