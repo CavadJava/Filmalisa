@@ -11,7 +11,7 @@ logoutBtn.addEventListener(`click`, () => {
         localStorage.removeItem(`token`)
         updateButton()
         alert(`logged out`);
-        window.location.href = `/admin/login.html`
+        window.location.href = `/Filmalisa/admin/pages/login.html`
         
     }else {
         auth()
