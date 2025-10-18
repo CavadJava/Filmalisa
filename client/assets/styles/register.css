@@ -145,3 +145,22 @@ body {
 .login-link a {
   color: #99A3BE;
 }
+
+h1 {
+    margin-top: 23px;
+    font-size: 70px;
+    font-weight: 400;
+    line-height: 80px;
+    font-family: "Numans", sans-serif;
+    color: #c3c8d4;
+}
+
+span {
+    font-family: "Numans", sans-serif;
+    color: #c3c8d4;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 80px;
+    letter-spacing: -0.02em;
+    text-align: center;
+}
