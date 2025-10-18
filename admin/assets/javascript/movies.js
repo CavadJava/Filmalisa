@@ -22,9 +22,9 @@ function fetchMovies() {
             }
             return response.json()
         })
-        .then(data => {
-            console.log(data);
-            displayMovies (data)
+        .then(result => {
+            console.log(result.data);
+            displayMovies (result.data)
             
         })
         .catch(err => console.log("Fetch error:", err));
@@ -33,21 +33,27 @@ function fetchMovies() {
     
 }
 function displayMovies(movies) {
-    const tbody = document.querySelector("#table tbody");
-   
-    tbody.innerHTML ="";
+    let result = "";
     movies.forEach(movie => {
-        const tr = document.createElement("tr")
-        const tdId = document.createElement("td")
-        tdId.textContent = movie.id || "-";
-        
-        tr.appendChild(tdId);
-        const tdTitle = document.createElement("td")
-        tdTitle.textContent = movie.title || "-";
-        tr.appendChild(tdTitle)
-        tbody.appendChild(tr)
-         
-    });
-    
+            let row = `
+            <tr>
+                <td>${movie.id}</td>
+                <td class="movie-image"><img src="${movie.cover_url}" alt="John Carroll Lynch" class="actor-image"></td>
+                <td>${movie.title}</td>
+                <td class="movie-overview crop" >${movie.overview}</td>
+                <td>${movie.category['name']}</td>
+                <td>${movie.imdb}</td>
+                <td>
+                    <button class="action-btn moviesModal" data-bs-toggle="modal" data-bs-target="#moviesModal"><i class="fa-solid fa-pen-to-square text-dark" style="cursor: pointer; "></i></button>
+                </td>
+                <td>
+                    <button class="action-btn moviesModalAlert" data-bs-toggle="modal" data-bs-target="#moviesModalAlert"> <i class="fa-solid fa-trash text-dark" style="cursor: pointer; "></i></button>
+                </td>
+            </tr>
+            `;
+            result+=row;
+        });
+    document.querySelector("table tbody").innerHTML = result;
+
 }
 document.addEventListener("DOMContentLoaded", fetchMovies);
