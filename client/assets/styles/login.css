@@ -132,3 +132,18 @@ body {
 .input-box .eye {
     right: 16px;
 }
+
+.input-box a:focus {
+    background-color: #1D1D1D;
+    border:none;
+    color: #99a3be;
+}
+.input-box a {
+    margin:10px 0 0 0;
+    padding: 10px 0 0 0;
+    background-color: #1D1D1D;
+    border:none;
+    text-align: left;
+    font-size: 14px;
+    color: #99a3be;
+}
