@@ -44,10 +44,12 @@ function displayMovies(movies) {
                 <td>${movie.category['name']}</td>
                 <td>${movie.imdb}</td>
                 <td>
-                    <button class="action-btn moviesModal" data-bs-toggle="modal" data-bs-target="#moviesModal"><i class="fa-solid fa-pen-to-square text-dark" style="cursor: pointer; "></i></button>
+                    <button class="action-btn moviesModal" style="border:none; background-color: transparent;" data-bs-toggle="modal" data-bs-target="#moviesModal">
+                    <i class="fa-solid fa-pen-to-square text-dark" style="cursor: pointer; "></i></button>
                 </td>
                 <td>
-                    <button class="action-btn moviesModalAlert" data-bs-toggle="modal" data-bs-target="#moviesModalAlert"> <i class="fa-solid fa-trash text-dark" style="cursor: pointer; "></i></button>
+                    <button class="action-btn moviesModalAlert" style="border:none; background-color: transparent;" data-bs-toggle="modal" data-bs-target="#moviesModalAlert">
+                     <i class="fa-solid fa-trash text-dark" style="cursor: pointer; "></i></button>
                 </td>
             </tr>
             `;
