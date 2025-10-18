@@ -51,8 +51,6 @@ body {
 .password-input {
     height: 64px;
     width: 547px;
-    padding-top: 16px;
-    padding-bottom: 40px;
     border-radius: 12px;
     border: 1px solid #323B54;
     background-color: #0000001A;
