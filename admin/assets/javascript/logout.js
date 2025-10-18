@@ -3,7 +3,8 @@ function updateButton () {
     const token =localStorage.getItem(`token`)
  logoutBtn.textContent = token ? `Logout` : `Login`
 }
-updateButton()
+// todo no need
+// updateButton()
 logoutBtn.addEventListener(`click`, () => {
     const token = localStorage.getItem(`token`);
 
