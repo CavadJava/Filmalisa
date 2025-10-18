@@ -1,5 +1,10 @@
 function fetchMovies() {
-    const token = "9-v0b0pMu6ChCQnxPUKKWLmWDQkj9o68v4IEjzXJHwQ"
+    const token = localStorage.getItem("token")
+    if (!token) {
+        alert ("Please log in")
+        return
+        
+    }
     fetch ("https://api.sarkhanrahimli.dev/api/filmalisa/admin/movies", {
         
             method : "GET",
@@ -28,7 +33,8 @@ function fetchMovies() {
     
 }
 function displayMovies(movies) {
-    const container = document.querySelector("#table tbody");
+    const tbody = document.querySelector("#table tbody");
+   
     tbody.innerHTML ="";
     movies.forEach(movie => {
         const tr = document.createElement("tr")
