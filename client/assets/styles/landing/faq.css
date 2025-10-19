@@ -9,7 +9,12 @@
 }
 .accordion-button {
   background-color: #2A2A2A;
+  cursor: pointer;
+  transition: backgraund-coloor 0.3s ease;
 
+}
+.accordion-button:hover {
+  background-color: #444242;
 }
 .accordion-item {
   width: 700px;

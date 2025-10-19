@@ -22,4 +22,14 @@
 .list li {
 margin-bottom: 16px;
 margin-right: 30px;
+transition: backgraund-coloor 0.3s ease;
+cursor: pointer;
+text-decoration: underline;
+
+
+}
+.list li:hover {
+    color: #722672e7;
+    
+    
 }
