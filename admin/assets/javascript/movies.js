@@ -49,7 +49,6 @@ createModalEl.addEventListener('hidden.bs.modal', function () {
 function loadMovies() {
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("No token found");
         window.location.href = "/Filmalisa/admin/pages/login.html";
         return;
     }
@@ -80,7 +79,6 @@ function loadMovies() {
 function loadCategories() {
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("No token found");
         window.location.href = "/Filmalisa/admin/pages/login.html";
         return;
     }
@@ -115,7 +113,6 @@ function loadCategories() {
 function loadActors() {
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("No token found");
         window.location.href = "/Filmalisa/admin/pages/login.html";
         return;
     }
@@ -290,7 +287,6 @@ function openUpdateModal(movieId) {
 
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("No token found");
         window.location.href = "/Filmalisa/admin/pages/login.html";
         return;
     }
@@ -361,7 +357,6 @@ function handleDeleteMovie() {
 
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("No token found");
         window.location.href = "/Filmalisa/admin/pages/login.html";
         return;
     }
