@@ -8,25 +8,24 @@
 }
 
 .category-input {
-    margin-top: 90px;
-    margin-left: 37px; 
-
-
-    padding: 8px 16px; 
+    margin-top: 45px;
+    margin-left: 37px;
 
     width: 467px;
     height: 54px;
     /* padding-left: 50px; */
-    padding-right: 50px;
-
 
     font-size: 14px;
     font-family: 'Raleway', sans-serif;
-    border-radius: 12px;
     border: 1px solid #323B54;
     font-weight: 400;
 
-    background-color: #0000001A;
+    background-color: #2a2a2a;
+    /* border: 1px solid #404040; */
+    color: #fff;
+    padding: 0.75rem;
+    border-radius: 8px;
+
 }
 
 .category-btn {
