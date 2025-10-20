@@ -22,6 +22,11 @@ tbody tr {
     font-weight: 400;
     font-size: 14px;
 }
+
+tbody button {
+    border: none;
+}
+
 .header-left span {
     font-weight: 500;
     font-style: medium;
