@@ -16,7 +16,8 @@ function handlerLogin(){
     let emailEl = document.querySelector("#form-email");
     let passwordEl = document.querySelector("#form-password");
 
-    validate(emailEl, passwordEl);
+    // validate(emailEl, passwordEl);
+     if (!validate(emailEl, passwordEl)) return;
 
     fetch(LOGIN_URL, {
         method: "POST",
