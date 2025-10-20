@@ -1,27 +1,36 @@
-let url = "https://api.sarkhanrahimli.dev/api/filmalisa/admin/users";
+console.log("User started");
+
 let userData = [];
 let currentPage = 1;
 let itemsPerPage = 10;
 
+const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa";
+const USERS_URL = `${API_BASE}/admin/users`;
+
+// Initialize - Load Users on page load
+userList();
+
 function userList(){
+    const token = localStorage.getItem("token");
     try {
-        let token = localStorage.getItem("token");
-        if(token==null || token.length<10){
-            location.href="/Filmalisa/admin/pages/login.html";
+        if (!token) {
+            console.error("No token found");
+            window.location.href = "/Filmalisa/admin/pages/login.html";
             return;
         }
-        let options = {
+        fetch(USERS_URL, {
             method : 'GET',
             headers : {
                 'Authorization':"Bearer ".concat(token),
                 'Accept-Language':'AZ'
             }
-        }
-        return (fetch(url, options)).then(response => response.json()).then(data => {
+        }).then(response => response.json()).then(data => {
             console.log(data);
             userData = data['data'];
             console.log(userData)
             displayPage(1);
+        }).catch(error =>{
+            console.error("Error loading users", error);
         });
 
     } catch (error) {
@@ -57,16 +66,12 @@ function setUserList(data, page){
     document.querySelector(".page-table tbody").innerHTML = result;
 }
 
+
 function setPagination(){
     let totalPages = Math.ceil(userData.length / itemsPerPage);
 
     if(totalPages > 0) {
         let result = `<ul class="pagination">`;
-
-        // Previous button
-        result += `<li class="page-item ${currentPage === 1 ? 'disabled' : ''}" onclick="${currentPage > 1 ? 'displayPage(' + (currentPage - 1) + ')' : ''}">
-            <a class="page-link"">Previous</a>
-        </li>`;
 
         // Page numbers
         for (let i = 1; i <= totalPages; i++) {
@@ -75,14 +80,7 @@ function setPagination(){
             </li>`;
         }
 
-        // Next button
-        result += `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}" onclick="${currentPage < totalPages ? 'displayPage(' + (currentPage + 1) + ')' : ''}">
-            <a class="page-link"">Next</a>
-        </li>`;
-
         result += `</ul>`;
         document.querySelector(".pagination").innerHTML = result;
     }
 }
-
-userList()
