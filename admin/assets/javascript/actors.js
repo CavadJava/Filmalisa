@@ -44,7 +44,6 @@ createModalEl.addEventListener('hidden.bs.modal', function () {
 function loadActors() {
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("No token found");
         window.location.href = "/Filmalisa/admin/pages/login.html";
         return;
     }
@@ -167,7 +166,6 @@ function openUpdateModal(actor_id, name, surname, img_url) {
     
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("No token found");
         window.location.href = "/Filmalisa/admin/pages/login.html";
         return;
     }
@@ -246,7 +244,6 @@ function handleDeleteActor() {
 
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("No token found");
         window.location.href = "/Filmalisa/admin/pages/login.html";
         return;
     }

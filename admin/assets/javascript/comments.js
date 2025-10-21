@@ -90,7 +90,6 @@ function loadMovies() {
 function loadComments() {
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("No token found");
         window.location.href = "/Filmalisa/admin/pages/login.html";
         return;
     }
@@ -216,7 +215,6 @@ function openViewModal(id, movieId, comment) {
 
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("No token found");
         window.location.href = "/Filmalisa/admin/pages/login.html";
         return;
     }
@@ -247,7 +245,6 @@ function handleDeleteComment() {
 
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("No token found");
         window.location.href = "/Filmalisa/admin/pages/login.html";
         return;
     }

@@ -45,7 +45,6 @@ createModalEl.addEventListener('hidden.bs.modal', function () {
 function loadContacts() {
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("No token found");
         window.location.href = "/Filmalisa/admin/pages/login.html";
         return;
     }
@@ -168,7 +167,6 @@ function openUpdateModal(contactId, full_name, email, reason) {
 
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("No token found");
         window.location.href = "/Filmalisa/admin/pages/login.html";
         return;
     }
@@ -249,7 +247,6 @@ function handleDeleteContact() {
 
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("No token found");
         window.location.href = "/Filmalisa/admin/pages/login.html";
         return;
     }
