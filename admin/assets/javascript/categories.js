@@ -74,7 +74,7 @@ function loadCategories() {
 
 // Display categories in table
 function displayCategories(categoryList) {
-    const tbody = document.querySelector(".table-container tbody");
+    const tbody = document.querySelector(".page-table-container tbody");
 
     if (!tbody) {
         console.error("Table body not found");
