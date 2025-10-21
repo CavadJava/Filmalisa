@@ -112,7 +112,7 @@ function movies(){
         console.log("Movies loaded:", resp);
     })
     .catch(error => {
-        console.error("Error loading users:", error);
+        console.error("Error loading movies:", error);
     });
 
 }
@@ -139,10 +139,10 @@ function contacts(){
             return response.json();
         }).then(resp => {
         document.querySelector(".actors h3").innerHTML = resp.data.length;
-        console.log("Movies loaded:", resp);
+        console.log("Contacts loaded:", resp);
     })
         .catch(error => {
-            console.error("Error loading actors:", error);
+            console.error("Error loading contacts:", error);
         });
 
 }
@@ -199,10 +199,10 @@ function comments(){
             return response.json();
         }).then(resp => {
         document.querySelector(".actors h3").innerHTML = resp.data.length;
-        console.log("Actors loaded:", resp);
+        console.log("Comments loaded:", resp);
     })
         .catch(error => {
-            console.error("Error loading actors:", error);
+            console.error("Error loading comments:", error);
         });
 
 }
