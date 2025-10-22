@@ -1,5 +1,9 @@
 console.log("Actors started");
 
+let userData = [];
+let currentPage = 1;
+let itemsPerPage = 10;
+
 // API URLs - Actors API endpoint-ləri
 const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa";
 const ACTOR_URL = `${API_BASE}/admin/actor`;
@@ -65,7 +69,8 @@ function loadActors() {
     })
     .then(resp => {
         console.log("Actors loaded:", resp);
-        displayActors(resp.data);
+        userData = resp['data'];
+        displayPage(1);
     })
     .catch(error => {
         console.error("Error loading actors:", error);
@@ -73,22 +78,80 @@ function loadActors() {
     });
 }
 
-// Display actors in table - Actor-ları cədvəldə göstər
+function displayPage(page){
+    currentPage = page;
+    let startIndex = (page - 1) * itemsPerPage;
+    let endIndex = startIndex + itemsPerPage;
+    let pageData = userData.slice(startIndex, endIndex);
+    setUserList(pageData, page);
+    setPagination();
+}
+
+function setUserList(data, page){
+    let result = "";
+    let startIndex = (page - 1) * itemsPerPage;
+
+    data.forEach((actor, index) => {
+        let order = startIndex + index + 1;
+        let row = `
+            <tr>
+                <td  id="actorId" style="display: none">${actor.id}</td>
+                <td>${order}</td>
+                <td class="movie-image"><img src="${actor.img_url || ''}" alt="${actor.name}" class="actor-image"></td>
+                <td>${actor.name}</td>
+                <td>${actor.surname || 'N/A'}</td>
+                <td>
+                    <button class="action-btn" onclick="openUpdateModal('${actor.id}','${actor.name}','${actor.surname}','${actor.img_url}')">
+                        <i class="fa-solid fa-pen-to-square text-dark"></i>
+                    </button>
+                </td>
+                <td>
+                    <button class="action-btn" onclick="openDeleteModal(${actor.id})">
+                        <i class="fa-solid fa-trash text-dark"></i>
+                    </button>
+                </td>
+            </tr>
+        `;
+        result += row;
+    });
+    document.querySelector(".page-table tbody").innerHTML = result;
+}
+
+
+function setPagination(){
+    let totalPages = Math.ceil(userData.length / itemsPerPage);
+
+    if(totalPages > 0) {
+        let result = `<ul class="pagination">`;
+
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
+            result += `<li class="page-item ${i === currentPage ? 'active' : ''}" onclick="displayPage(${i})">
+                <a class="page-link"">${i}</a>
+            </li>`;
+        }
+
+        result += `</ul>`;
+        document.querySelector(".pagination").innerHTML = result;
+    }
+}
+
+//Deprecated
 function displayActors(actors) {
     const tbody = document.querySelector("table tbody");
-    
+
     if (!tbody) {
         console.error("Table body not found");
         return;
     }
-    
+
     tbody.innerHTML = "";
-    
+
     if (!actors || actors.length === 0) {
         tbody.innerHTML = '<tr><td colspan="6" class="text-center">No actors found</td></tr>';
         return;
     }
-    
+
     actors.forEach(actor => {
         const row = `
             <tr>
