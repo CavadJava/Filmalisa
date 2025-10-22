@@ -18,71 +18,33 @@ async function getFavorites() {
 
     const data = await res.json();
     console.log("Favorit siyahısı:", data);
-    return data;
+   
+     renderFavorites(data.data);
   } catch (err) {
     console.error("Xəta:", err);
   }
 }
 
-// 2. Sevimlilərə əlavə et (POST /add)
-async function addToFavorites(movieId) {
-  try {
-    const res = await fetch(`https://api.sarkhanrahimli.dev/api/filmalisa/movie/${movieId}/favorite/add`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`,
-      },
-      body: JSON.stringify({ id: movieId }),
-    });
+function renderFavorites(favorites) {
+  const container = document.getElementById("favorites-container");
+   
+  container.innerHTML = "";
 
-    if (!res.ok) throw new Error("Favoritə əlavə olunmadı");
-
-    const data = await res.json();
-    console.log(`Film #${movieId} favoritlərə əlavə olundu:`, data);
-    return data;
-  } catch (err) {
-    console.error("Xəta:", err);
-  }
-}
-
-// 🔹 3. Sevimlilərdən sil (POST /remove)
-async function removeFromFavorites(movieId) {
-  try {
-    const res = await fetch(`https://api.sarkhanrahimli.dev/api/filmalisa/movie/${movieId}/favorite/remove`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`,
-      },
-      body: JSON.stringify({ id: movieId }),
-    });
-
-    if (!res.ok) throw new Error("Favoritdən silinmədi");
-
-    const data = await res.json();
-    console.log(`Film #${movieId} favoritlərdən silindi:`, data);
-    return data;
-  } catch (err) {
-    console.error("Xəta:", err);
-  }
-}
-
-// 🔹 4. Buton kliklərinə qoşmaq nümunəsi
-// Məsələn, hər film üçün "favorite" düyməsi varsa:
-document.querySelectorAll(".btn-circle").forEach((btn) => {
-  btn.addEventListener("click", async () => {
-    const movieId = btn.dataset.id; // HTML-də data-id olacaq
-    const isFavorite = btn.classList.contains("active");
-
-    if (isFavorite) {
-      await removeFromFavorites(movieId);
-      btn.classList.remove("active");
-       btn.querySelector(".icon i").classList.replace("fa-check", "fa-plus");
-    } else {
-      await addToFavorites(movieId);
-      btn.classList.add("active");
-       btn.querySelector(".icon i").classList.replace("fa-plus", "fa-check");
-    }
+  favorites.forEach(movie => {
+    const div = document.createElement("div");
+    div.classList.add("movie-card");
+    div.innerHTML = `
+      <img src="${movie.cover_url}" alt="${movie.title}">
+       <div class="movie-info">
+        <p>${movie.category?.name || ""}</p>
+        <h3>${movie.title}</h3>
+        <div class="imdb">⭐ ${movie.imdb}</div>
+      </div>
+    `;
+    container.appendChild(div);
   });
-});
+}
+
+getFavorites();
+
+
