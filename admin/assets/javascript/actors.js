@@ -19,6 +19,9 @@ const deleteModalInstance = new bootstrap.Modal(deleteModalEl);
 // Initialize - Səhifə yükləndikdə actors-ləri yüklə
 loadActors();
 
+// Auth
+setTimeout(auth,3000)
+
 // Setup event listeners - Event listener-ləri quraşdır
 const createBtn = document.querySelector('.createBtnOnModal');
 if (createBtn) {
