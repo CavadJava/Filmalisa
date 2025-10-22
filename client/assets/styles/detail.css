@@ -19,9 +19,7 @@ body {
   opacity: 0.8;
   transform: scale(1.02);
   transition: 0.3s;
-  content: url(/client/assets/images/detail/or06FN3Dka5tukK1e9sl16pB3iy\ 2.svg);
- 
-
+  content: url(../../assets/images/detail/or06FN3Dka5tukK1e9sl16pB3iy-2.svg);
 }
 .img-thumbnail {
     width: 573px;
@@ -97,7 +95,7 @@ body {
   transform: scale(1.1);
 }
  .input-with-icon {
-  background: url('/client/assets/images/detail/Group\ 82.svg') no-repeat 10px center;
+  background: url(../../assets/images/detail/Group-82.svg) no-repeat 10px center;
   background-size: 35px; 
  
   left: 12px;

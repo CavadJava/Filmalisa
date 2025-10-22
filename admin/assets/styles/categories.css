@@ -16,3 +16,144 @@
 .modal-header,.modal-footer{
     border: 1px solid rgba(155, 81, 224, 0.15);
 }
+
+.page-table-container {
+    /*width: 80%;*/
+    margin: 60px auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.page-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #333;
+}
+
+.page-table thead {
+    background-color: #000000d3;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+}
+
+.page-table th {
+    text-align: left;
+    font-weight: 600;
+    padding: 14px 18px;
+    font-size: 15px;
+    color: #fff;
+}
+
+.page-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+}
+
+.page-table tr:last-child td {
+    border-bottom: none;
+}
+.page-table img {
+    width: 29px;
+    height: 39px;
+}
+
+.movie-image img {
+    width: 29px;
+    height: 39px;
+}
+
+/* Movie Modal Styles */
+.movie-modal {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+}
+
+.movie-modal .modal-header {
+    padding: 1.5rem;
+}
+
+.movie-modal .modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.movie-modal .modal-body {
+    padding: 1.5rem;
+}
+
+.movie-modal .modal-footer {
+    padding: 1rem 1.5rem;
+}
+
+.movie-input {
+    background-color: #2a2a2a;
+    border: 1px solid #404040;
+    color: #fff;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.movie-input:focus {
+    background-color: #333;
+    border-color: #9B51E0;
+    color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(155, 81, 224, 0.25);
+}
+
+.movie-input::placeholder {
+    color: #888;
+}
+
+.movie-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.movie-modal .form-check-input {
+    background-color: #2a2a2a;
+    border-color: #404040;
+}
+
+.movie-modal .form-check-input:checked {
+    background-color: #9B51E0;
+    border-color: #9B51E0;
+}
+
+.movie-modal .form-check-label {
+    color: #ccc;
+}
+
+.movie-modal .btn-primary {
+    background-color: #9B51E0;
+    border-color: #9B51E0;
+}
+
+.movie-modal .btn-primary:hover {
+    background-color: #8040c0;
+    border-color: #8040c0;
+}
+
+.movie-modal .btn-secondary {
+    background-color: #404040;
+    border-color: #404040;
+}
+
+.movie-modal .btn-secondary:hover {
+    background-color: #505050;
+    border-color: #505050;
+}
+
+.movie-modal .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.movie-modal .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}

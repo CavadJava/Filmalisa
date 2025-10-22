@@ -1,5 +1,5 @@
 .icon-logo-custom {
-    background-image: url('/client/assets/images/sidebar/logo.png');
+    background-image: url(../images/sidebar/logo.png);
     background-repeat: no-repeat;
     background-position: center center;
     width: 56px;
@@ -8,7 +8,7 @@
 }
 
 .icon-home-custom {
-    background-image: url('/client/assets/images/sidebar/home1.png');
+    background-image: url(../images/sidebar/home1.png);
     background-repeat: no-repeat;
     background-position: center center;
     width: 56px;
@@ -17,7 +17,7 @@
 }
 
 .icon-home3-custom {
-    background-image: url('/client/assets/images/sidebar/home2.png');
+    background-image: url(../images/sidebar/home2.png);
     background-repeat: no-repeat;
     background-position: center center;
     width: 56px;
@@ -26,7 +26,7 @@
 }
 
 .icon-home4-custom {
-    background-image: url('/client/assets/images/sidebar/home3.png');
+    background-image: url(../images/sidebar/home3.png);
     background-repeat: no-repeat;
     background-position: center center;
     width: 56px;
@@ -35,7 +35,7 @@
 }
 
 .icon-home5-custom {
-    background-image: url('/client/assets/images/sidebar/home4.png');
+    background-image: url(../images/sidebar/home4.png);
     background-repeat: no-repeat;
     background-position: center center;
     width: 56px;

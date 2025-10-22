@@ -2,13 +2,9 @@
 @import 'common/header.css';
 @import 'common/main-content.css';
 
-body {
-  font-family: "Raleway", sans-serif;
-}
-
 .menu-item-active{
-    background-color: #58209D;
-    color: #fff;
+  background-color: #58209D;
+  color: #fff;
 }
 
 .main-content {
@@ -41,17 +37,13 @@ body {
   font-weight: 500;
   color: #bbb;
   margin: 0;
-  font-style: medium;
-  line-height: 100%;
 }
 
 .dashboard-card h3 {
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 26px;
+  font-weight: 700;
   margin-top: 8px;
   color: #fff;
-  font-style: bold;
-  line-height: 100%;
 }
 
 /* Hover Effekti */
