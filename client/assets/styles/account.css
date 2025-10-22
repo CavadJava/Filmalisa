@@ -7,14 +7,19 @@
 }
 
 body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Poppins', 'Raleway', sans-serif;
+    background-color: #1D1D1D;
+    height: 946px;
 }
 
-.account-icon {
-    text-align: center;
-    padding-top: 90px;
+.account-icon img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #3ddc84;
+    display: block;
+    margin: 0 auto;
+    background-color: #000;
 }
 
 .account-title {
@@ -84,6 +89,14 @@ body {
 
 }
 
+.button:hover,
+.button:focus {
+    background-color: #9B51E0;
+    color: #fff;
+    border: 2px solid #9B51E0;
+    cursor: pointer;
+}
+
 .account-form {
     width: 300px;
     margin: 50px auto;
@@ -118,6 +131,15 @@ body {
     background-color: #0000001A;
 
 }
+
+.input-box input:hover,
+.input-box input:focus {
+    background-color: #0000001A;
+    border: 1px solid #9B51E0;
+    color: #fff;
+    outline: none;
+}
+
 
 .input-box .input-svg,
 .input-box .toogle,
