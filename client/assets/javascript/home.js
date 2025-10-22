@@ -5,6 +5,10 @@ console.log("Home page started");
 const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa";
 const MOVIES_URL = `${API_BASE}/movies`
 
+// check session
+if (!localStorage.getItem("token")) window.location.href = "/Filmalisa/admin/pages/login.html";
+
+
 // Load Action Movies
 loadMoviesAction();
 // Load Comedy Movies

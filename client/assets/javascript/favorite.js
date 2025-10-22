@@ -3,12 +3,13 @@ const token = localStorage.getItem("token");
 
 //API bazası 
 const BASE_URL = "https://api.sarkhanrahimli.dev/api/filmalisa/movies/favorites";
+if (!token) window.location.href = "/Filmalisa/admin/pages/login.html";
 
 
 // 1. Sevimliləri gətir (GET)
 async function getFavorites() {
   try {
-    const res = await fetch("https://api.sarkhanrahimli.dev/api/filmalisa/categories", {
+    const res = await fetch(`${BASE_URL}/categories`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`,

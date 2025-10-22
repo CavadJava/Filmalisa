@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    if (!localStorage.getItem("token")) window.location.href = "/Filmalisa/admin/pages/login.html";
 
     const imageInput = document.querySelector('input[placeholder="profile image url"]');
     const fullnameInput = document.querySelector('input[placeholder="fullname"]');

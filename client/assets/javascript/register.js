@@ -5,16 +5,16 @@ const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa";
 const REGISTER_URL = `${API_BASE}/auth/signup`
 
 const guestEmail = localStorage.getItem("guest_email");
-if(guestEmail) {
+if (guestEmail) {
     document.querySelector(".form-email").value = guestEmail;
 }
 const registerBtn = document.querySelector(".form-registerBtn");
-if(registerBtn){
-    registerBtn.addEventListener("click",handleRegisterUser)
+if (registerBtn) {
+    registerBtn.addEventListener("click", handleRegisterUser)
 }
 
 // Register New User
-function handleRegisterUser(){
+function handleRegisterUser() {
     let fullName = document.querySelector(".form-fullName");
     let email = document.querySelector(".form-email");
     let password = document.querySelector(".form-password");
@@ -34,10 +34,10 @@ function handleRegisterUser(){
             password: password.value
         })
     })
-    .then(response => response.json())
-    .then(resp => {
-        window.location.href = "/Filmalisa/client/pages/login.html";
-    }).catch(error=>{
+        .then(response => response.json())
+        .then(resp => {
+            window.location.href = "/Filmalisa/client/pages/login.html";
+        }).catch(error => {
         console.error("Error register:", error);
         alert("Error register");
     });
@@ -45,15 +45,15 @@ function handleRegisterUser(){
 
 // Register form validate
 function validate(fullName, email, password) {
-    if(fullName.value.trim() === "") {
+    if (fullName.value.trim() === "") {
         alert("Please enter your full name");
         return;
     }
-    if(email.value.trim() === "") {
+    if (email.value.trim() === "") {
         alert("Please enter your email");
         return;
     }
-    if(password.value.trim() === "") {
+    if (password.value.trim() === "") {
         alert("Please enter your password");
         return;
     }
