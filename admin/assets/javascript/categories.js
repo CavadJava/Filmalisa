@@ -20,6 +20,14 @@ loadCategories();
 // Auth
 setTimeout(auth,3000)
 
+// Handle Auth before login
+function auth(){
+    if (localStorage.getItem("role") !== "admin") {
+        window.location.href = "/Filmalisa/admin/pages/login.html";
+        localStorage.removeItem("role")
+    }
+}
+
 // Setup event listeners
 const createBtn = document.querySelector('.createBtnOnModal');
 if (createBtn) {
