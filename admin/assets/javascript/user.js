@@ -10,6 +10,9 @@ const USERS_URL = `${API_BASE}/admin/users`;
 // Initialize - Load Users on page load
 userList();
 
+// Auth
+setTimeout(auth,3000)
+
 function userList(){
     const token = localStorage.getItem("token");
     try {
