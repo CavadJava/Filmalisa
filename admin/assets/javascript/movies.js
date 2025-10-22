@@ -1,5 +1,9 @@
 console.log("Movies started");
 
+let categoriesData = [];
+let currentPage = 1;
+let itemsPerPage = 10;
+
 // API URLs
 const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa";
 const MOVIE_URL = `${API_BASE}/admin/movie`;
@@ -78,7 +82,7 @@ function loadMovies() {
     })
     .then(resp => {
         console.log("Movies loaded:", resp);
-        displayMovies(resp.data);
+        displayMovies(1)
     })
     .catch(error => {
         console.error("Error loading movies:", error);
@@ -146,6 +150,7 @@ function loadActors() {
         resp.data.forEach(actor => {
             result += `<option value="${actor.id}">${actor.name}</option>`;
         });
+        displayPage(1);
         document.querySelector("#createMoviesModal .actor").innerHTML = result;
         document.querySelector("#updateMoviesModal .actor").innerHTML = result;
     })
@@ -153,6 +158,69 @@ function loadActors() {
         console.error("Error loading actors:", error);
     });
 }
+
+
+
+function displayPage(page){
+    currentPage = page;
+    let startIndex = (page - 1) * itemsPerPage;
+    let endIndex = startIndex + itemsPerPage;
+    let pageData = categoriesData.slice(startIndex, endIndex);
+    setUserList(pageData, page);
+    setPagination();
+}
+
+function setUserList(data, page){
+    let result = "";
+    let startIndex = (page - 1) * itemsPerPage;
+
+    data.forEach((ud, index) => {
+        let order = startIndex + index + 1;
+        let row = `
+          <tr>
+                <td class="order-id">${order}</td>
+                <td class="movie-id" style="none">${movie.id}</td>
+                <td class="movie-image"><img src="${movie.cover_url}" alt="${movie.title}" class="actor-image"></td>
+                <td>${movie.title}</td>
+                <td class="movie-overview crop">${movie.overview}</td>
+                <td>${movie.category?.name || 'N/A'}</td>
+                <td>${movie.imdb}</td>
+                <td>
+                    <button class="action-btn" onclick="openUpdateModal(${movie.id})">
+                        <i class="fa-solid fa-pen-to-square text-dark"></i>
+                    </button>
+                </td>
+                <td>
+                    <button class="action-btn" onclick="openDeleteModal(${movie.id})">
+                        <i class="fa-solid fa-trash text-dark"></i>
+                    </button>
+                </td>
+            </tr>
+          </tr>
+        `;
+        result += row;
+    });
+    document.querySelector(".page-table tbody").innerHTML = result;
+}
+
+function setPagination(){
+    let totalPages = Math.ceil(categoriesData.length / itemsPerPage);
+
+    if(totalPages > 0) {
+        let result = `<ul class="pagination">`;
+
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
+            result += `<li class="page-item ${i === currentPage ? 'active' : ''}" onclick="displayPage(${i})">
+                <a class="page-link"">${i}</a>
+            </li>`;
+        }
+
+        result += `</ul>`;
+        document.querySelector(".pagination").innerHTML = result;
+    }
+}
+
 
 // Display movies in table
 function displayMovies(movies) {

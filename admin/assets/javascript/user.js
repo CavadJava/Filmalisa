@@ -69,7 +69,6 @@ function setUserList(data, page){
     document.querySelector(".page-table tbody").innerHTML = result;
 }
 
-
 function setPagination(){
     let totalPages = Math.ceil(userData.length / itemsPerPage);
 
