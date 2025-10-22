@@ -23,8 +23,7 @@ setTimeout(auth,3000)
 // Handle Auth before login
 function auth(){
     if (localStorage.getItem("role") !== "admin") {
-        window.location.href = "/Filmalisa/admin/pages/login.html";
-        localStorage.removeItem("role")
+        window.location.href = "/Filmalisa/client/pages/home.html";
     }
 }
 
@@ -76,13 +75,71 @@ function loadCategories() {
     })
     .then(resp => {
         console.log("Categories loaded:", resp);
-        displayCategories(resp.data);
+        categoryData = resp['data'];
+        displayPage(1);
     })
     .catch(error => {
         console.error("Error loading categories:", error);
     });
 }
 
+function displayPage(page){
+    currentPage = page;
+    let startIndex = (page - 1) * itemsPerPage;
+    let endIndex = startIndex + itemsPerPage;
+    let pageData = categoryData.slice(startIndex, endIndex);
+    setUserList(pageData, page);
+    setPagination();
+}
+
+function setUserList(data, page){
+    let result = "";
+    let startIndex = (page - 1) * itemsPerPage;
+
+    data.forEach((category, index) => {
+        let order = startIndex + index + 1;
+        let row = `
+            <tr>
+                <td id="categoryId" style="display: none">${order.id}</td>
+                <td>${category.id}</td>
+                <td>${category.name}</td>
+                <td>
+                    <button class="action-btn" onclick="openUpdateModal(${category.id}, '${category.name.replace(/'/g, "\\'")}')">
+                        <i class="fa-solid fa-pen-to-square text-dark"></i>
+                    </button>
+                </td>
+                <td>
+                    <button class="action-btn" onclick="openDeleteModal(${category.id})">
+                        <i class="fa-solid fa-trash text-dark"></i>
+                    </button>
+                </td>
+            </tr>
+        `;
+        result += row;
+    });
+    document.querySelector(".page-table tbody").innerHTML = result;
+}
+
+
+function setPagination(){
+    let totalPages = Math.ceil(categoryData.length / itemsPerPage);
+
+    if(totalPages > 0) {
+        let result = `<ul class="pagination">`;
+
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
+            result += `<li class="page-item ${i === currentPage ? 'active' : ''}" onclick="displayPage(${i})">
+                <a class="page-link"">${i}</a>
+            </li>`;
+        }
+
+        result += `</ul>`;
+        document.querySelector(".pagination").innerHTML = result;
+    }
+}
+
+//Deprecated
 // Display categories in table
 function displayCategories(categoryList) {
     const tbody = document.querySelector(".page-table-container tbody");

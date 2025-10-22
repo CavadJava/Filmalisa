@@ -32,8 +32,7 @@ if (token) {
 
 // Profil ikonuna klik → menyunu aç / bağla
 profileIcon.addEventListener("click", () => {
-    dropdownMenu.style.display =
-        dropdownMenu.style.display === "block" ? "none" : "block";
+    dropdownMenu.style.display === "block" ? "none" : "block";
 });
 
 // Logout

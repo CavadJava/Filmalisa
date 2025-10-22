@@ -1,13 +1,10 @@
+const logoutBtn = document.querySelector(".loginBtn")
 logoutBtn.addEventListener(`click`, () => {
     const token = localStorage.getItem(`token`);
 
     if (token) {
-        localStorage.removeItem(`token`)
-        alert(`logged out`);
-        window.location.href = `/Filmalisa/admin/pages/login.html`
-        
-    }else {
-        auth()
-        updateButton()
+        window.location.href = `/Filmalisa/admin/pages/dashboard.html`
+        localStorage.setItem(`token`,token)
+        localStorage.setItem(`role`,'admin')
     }
 })
