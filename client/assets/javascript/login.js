@@ -32,6 +32,7 @@ function handlerLogin(){
     .then(resp => {
         if(resp.result){
             localStorage.setItem("token", resp.data['tokens'].access_token);
+            localStorage.setItem("role","client");
             window.location.href = "/Filmalisa/client/pages/home.html";
         }else{
             alert("Wrong email or password");

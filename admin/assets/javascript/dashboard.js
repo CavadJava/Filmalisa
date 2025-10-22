@@ -27,6 +27,17 @@ actors();
 // Load Comments
 comments();
 
+// Auth
+setTimeout(auth,3000)
+
+// Handle Auth before login
+function auth(){
+    if (localStorage.getItem("role") !== "admin") {
+        window.location.href = "/Filmalisa/admin/pages/login.html";
+        localStorage.removeItem("role")
+    }
+}
+
 // Handle Categories
 function categories(){
     const token = localStorage.getItem("token");
