@@ -20,6 +20,9 @@ const deleteModalInstance = new bootstrap.Modal(deleteModalEl);
 // Initialize - Səhifə yükləndikdə contacts-ləri yüklə
 loadContacts();
 
+// Auth
+setTimeout(auth,3000)
+
 // Setup event listeners - Event listener-ləri quraşdır
 const createBtn = document.querySelector('.createBtnOnModal');
 if (createBtn) {
