@@ -17,6 +17,9 @@ const deleteModalInstance = new bootstrap.Modal(deleteModalEl);
 // Initialize - Load categories on page load
 loadCategories();
 
+// Auth
+setTimeout(auth,3000)
+
 // Setup event listeners
 const createBtn = document.querySelector('.createBtnOnModal');
 if (createBtn) {
