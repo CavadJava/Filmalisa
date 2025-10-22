@@ -19,7 +19,8 @@ function handleRegisterUser(){
     let email = document.querySelector(".form-email");
     let password = document.querySelector(".form-password");
 
-    validate(fullName, email, password);
+    // validate(fullName, email, password);
+    if (!validate(fullName, email, password)) return; 
     const token = localStorage.getItem("token");
 
     fetch(REGISTER_URL, {
@@ -53,8 +54,14 @@ function validate(fullName, email, password) {
         alert("Please enter your email");
         return;
     }
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value)) {
+        alert("Please enter a valid email address");
+        return false;
+    }
     if(password.value.trim() === "") {
         alert("Please enter your password");
         return;
     }
+    return true;
 }
