@@ -90,6 +90,18 @@ body {
   transition: 0.3s;
 }
 
+
+.btn-circle.active {
+  background-color: green;
+}
+
+.btn-circle .icon i {
+  transition: transform 0.3s;
+}
+
+.btn-circle.active .icon i {
+  transform: rotate(360deg);
+}
 .btn-circle:hover {
   background-color: #dca514;
   transform: scale(1.1);
