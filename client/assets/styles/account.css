@@ -19,7 +19,7 @@ body {
     border: 3px solid #3ddc84;
     display: block;
     margin: 0 auto;
-    background-color: #000;
+     background-color: #000; 
 }
 
 .account-title {
@@ -29,6 +29,9 @@ body {
     line-height: 80px;
     color: #C3C8D4;
     font-family: "Numans", sans-serif;
+}
+.form-control::placeholder {
+    color: #475069;
 }
 
 .account-form {
