@@ -11,11 +11,33 @@ if(loginBtn){
     loginBtn.addEventListener("click",handlerLogin);
 }
 
+
+let emailEl = document.querySelector("#form-email");
+let passwordEl = document.querySelector("#form-password");
+
+if (emailEl) {
+    emailEl.addEventListener("keypress", (e) => {
+        emailEl.style.color = "#475069"
+    })
+}
+if (passwordEl) {
+    passwordEl.addEventListener("keypress", (e) => {
+        passwordEl.style.color = "#475069"
+    })
+}
+
+const eyeTogglePassword = document.querySelector(".eye-toggle");
+
+if (eyeTogglePassword) {
+    eyeTogglePassword.addEventListener("click", () => {
+        const type =
+            passwordEl.getAttribute("type") === "password" ? "text" : "password";
+        passwordEl.setAttribute("type", type);
+        eyeTogglePassword.classList.toggle("visible");
+    });
+}
 // Handler login
 function handlerLogin(){
-    let emailEl = document.querySelector("#form-email");
-    let passwordEl = document.querySelector("#form-password");
-
     validate(emailEl, passwordEl);
 
     fetch(LOGIN_URL, {
