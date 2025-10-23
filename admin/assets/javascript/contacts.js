@@ -1,5 +1,9 @@
 console.log("Contacts started");
 
+let contactData = [];
+let currentPage = 1;
+let itemsPerPage = 10;
+
 // API URLs - Contacts API endpoint-ləri
 const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa";
 const CONTACT_URL = `${API_BASE}/admin/contact`;
@@ -27,7 +31,6 @@ setTimeout(auth,3000)
 function auth(){
     if (localStorage.getItem("role") !== "admin") {
         window.location.href = "/Filmalisa/admin/pages/login.html";
-        localStorage.removeItem("role")
     }
 }
 
@@ -74,14 +77,72 @@ function loadContacts() {
         })
         .then(resp => {
             console.log("Contacts loaded:", resp);
-            displayContacts(resp.data);
-        })
-        .catch(error => {
-            console.error("Error loading contacts:", error);
-            alert("Error loading contacts");
-        });
+            contactData = resp['data'];
+            console.log(contactData)
+            displayPage(1);
+        }).catch(error => {
+        console.error("Error loading contacts", error);
+    });
 }
 
+function displayPage(page){
+    currentPage = page;
+    let startIndex = (page - 1) * itemsPerPage;
+    let endIndex = startIndex + itemsPerPage;
+    let pageData = contactData.slice(startIndex, endIndex);
+    setUserList(pageData, page);
+    setPagination();
+}
+
+function setUserList(data, page){
+    let result = "";
+    let startIndex = (page - 1) * itemsPerPage;
+
+    data.forEach((contact, index) => {
+        let order = startIndex + index + 1;
+        let row = `
+          <tr>
+               <td id="userId" style="display: none">${contact.id}</td>
+                <td>${order}</td>
+                <td>${contact.full_name}</td>
+                <td>${contact.email}</td>
+                <td>${contact.reason || 'no message'}</td>
+                <td>
+                    <button class="action-btn" onclick="openUpdateModal('${contact.id}', '${contact.full_name}', '${contact.email}', '${contact.reason}')">
+                        <i class="fa-solid fa-eye text-dark"></i>
+                    </button>
+                </td>
+                <td>
+                    <button class="action-btn" onclick="openDeleteModal(${contact.id})">
+                        <i class="fa-solid fa-trash text-dark"></i>
+                    </button>
+                </td>
+          </tr>
+        `;
+        result += row;
+    });
+    document.querySelector(".page-table tbody").innerHTML = result;
+}
+
+function setPagination(){
+    let totalPages = Math.ceil(contactData.length / itemsPerPage);
+
+    if(totalPages > 0) {
+        let result = `<ul class="pagination">`;
+
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
+            result += `<li class="page-item ${i === currentPage ? 'active' : ''}" onclick="displayPage(${i})">
+                <a class="page-link"">${i}</a>
+            </li>`;
+        }
+
+        result += `</ul>`;
+        document.querySelector(".pagination").innerHTML = result;
+    }
+}
+
+// Deprecated
 // Display contacts in table - Contact-ları cədvəldə göstər
 function displayContacts(contacts) {
     const tbody = document.querySelector("table tbody");
