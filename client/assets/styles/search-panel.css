@@ -23,7 +23,7 @@ body {
     color: #BCBCBC
 }
 
-#search-input:focus{
+.search-input:focus{
     width: 58px;
     height: 57px;
 }
