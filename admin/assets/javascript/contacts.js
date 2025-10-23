@@ -2,7 +2,7 @@ console.log("Contacts started");
 
 let contactData = [];
 let currentPage = 1;
-let itemsPerPage = 10;
+let itemsPerPage = 7;
 
 // API URLs - Contacts API endpoint-ləri
 const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa";

@@ -2,7 +2,7 @@ console.log("Actors started");
 
 let actorData = [];
 let currentPage = 1;
-let itemsPerPage = 10;
+let itemsPerPage = 3;
 
 // API URLs - Actors API endpoint-ləri
 const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa";

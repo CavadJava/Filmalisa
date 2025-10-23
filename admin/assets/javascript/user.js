@@ -2,7 +2,7 @@ console.log("User started");
 
 let userData = [];
 let currentPage = 1;
-let itemsPerPage = 10;
+let itemsPerPage = 7;
 
 const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa";
 const USERS_URL = `${API_BASE}/admin/users`;

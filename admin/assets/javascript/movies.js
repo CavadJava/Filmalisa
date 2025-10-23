@@ -2,7 +2,7 @@ console.log("Movies started");
 
 let moviesData = [];
 let currentPage = 1;
-let itemsPerPage = 10;
+let itemsPerPage = 7;
 
 // API URLs
 const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa";
