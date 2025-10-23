@@ -24,8 +24,8 @@ function loadProfile(){
     .then(resp => {
         if (resp.data) {
             document.querySelector(".image-frame img").setAttribute("src",
-                !resp.data['img_url'] ? resp.data['img_url'] : defaultProfileImg);
-            imageInput.value = !resp.data['img_url'] ? resp.data['img_url'] : defaultProfileImg;
+                resp.data['img_url'] ? resp.data['img_url'] : defaultProfileImg);
+            imageInput.value = resp.data['img_url'] ? resp.data['img_url'] : defaultProfileImg;
             fullnameInput.value = resp.data['full_name'];
             emailInput.value = resp.data['email'];
         }
