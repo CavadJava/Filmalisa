@@ -20,7 +20,7 @@ if (token) {
     if (userPhoto) {
         userImage.src = userPhoto;
     } else {
-        userImage.src = "../Filmalisa/admin/assets/images/profile.png"; // default icon
+        userImage.src = "/client/assets/images/profile.png"; // default icon
     }
 
     // ad göstər
@@ -31,9 +31,15 @@ if (token) {
 }
 
 // Profil ikonuna klik → menyunu aç / bağla
-profileIcon.addEventListener("click", () => {
-    dropdownMenu.style.display === "block" ? "none" : "block";
+// profileIcon.addEventListener("click", () => {
+//     dropdownMenu.style.display === "block" ? "none" : "block";
+// });
+profileIcon.addEventListener("click", (e) => {
+    e.stopPropagation(); // kənara klikdə bağlanmasın deyə
+    dropdownMenu.style.display =
+        dropdownMenu.style.display === "block" ? "none" : "block";
 });
+
 
 // Logout
 logoutBtn.addEventListener("click", () => {
