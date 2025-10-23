@@ -1,5 +1,9 @@
 console.log("Comments started");
 
+let commentData = [];
+let currentPage = 1;
+let itemsPerPage = 10;
+
 // API URLs - Comments API endpoint-ləri
 const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa";
 const COMMENT_URL = `${API_BASE}/admin/comment`;
@@ -22,6 +26,16 @@ const deleteModalInstance = new bootstrap.Modal(deleteModalEl);
 loadComments();
 loadUsers();
 loadMovies();
+
+// Auth
+setTimeout(auth,3000)
+
+// Handle Auth before login
+function auth(){
+    if (localStorage.getItem("role") !== "admin") {
+        window.location.href = "/Filmalisa/admin/pages/login.html";
+    }
+}
 
 // Auth
 setTimeout(auth,3000)
@@ -119,7 +133,9 @@ function loadComments() {
     })
     .then(resp => {
         console.log("Comments loaded:", resp);
-        displayComments(resp.data);
+        commentData = resp['data'];
+        displayPage(1)
+
     })
     .catch(error => {
         console.error("Error loading comments:", error);
@@ -127,6 +143,65 @@ function loadComments() {
     });
 }
 
+function displayPage(page){
+    currentPage = page;
+    let startIndex = (page - 1) * itemsPerPage;
+    let endIndex = startIndex + itemsPerPage;
+    let pageData = commentData.slice(startIndex, endIndex);
+    setUserList(pageData, page);
+    setPagination();
+}
+
+function setUserList(data, page){
+    let result = "";
+    let startIndex = (page - 1) * itemsPerPage;
+
+    data.forEach((comment, index) => {
+        let order = startIndex + index + 1;
+        let row = `
+            <tr>
+                <td>${comment.id}</td>
+                <td>${comment.user?.full_name || comment.full_name || ''}</td>
+                <td>${comment.user?.email || comment.email || ''}</td>
+                <td>${comment.movie?.title || comment.movie.title || ''}</td>
+                <td class="crop">${comment.comment || ''}</td>
+                <td>
+                    <button class="action-btn" onclick="openViewModal(${comment.id},${comment.movie.id},'${comment.comment}')">
+                        <i class="fa-solid fa-eye text-dark"></i>
+                    </button>
+                </td>
+                <td>
+                    <button class="action-btn" onclick="openDeleteModal(${comment.id})">
+                        <i class="fa-solid fa-trash text-dark"></i>
+                    </button>
+                </td>
+            </tr>
+        `;
+        result += row;
+    });
+    document.querySelector(".page-table tbody").innerHTML = result;
+}
+
+
+function setPagination(){
+    let totalPages = Math.ceil(commentData.length / itemsPerPage);
+
+    if(totalPages > 0) {
+        let result = `<ul class="pagination">`;
+
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
+            result += `<li class="page-item ${i === currentPage ? 'active' : ''}" onclick="displayPage(${i})">
+                <a class="page-link"">${i}</a>
+            </li>`;
+        }
+
+        result += `</ul>`;
+        document.querySelector(".pagination").innerHTML = result;
+    }
+}
+
+// Deprecated
 // Display comments in table - Comment-ləri cədvəldə göstər
 function displayComments(comments) {
     const tbody = document.querySelector("table tbody");
