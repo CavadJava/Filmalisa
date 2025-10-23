@@ -1,6 +1,7 @@
 console.log("Account started");
 // document.addEventListener("DOMContentLoaded", async () => {
 
+const defaultProfileImg = "/Filmalisa/client/assets/images/teacher.svg";
 const imageInput = document.querySelector('input[placeholder="profile image url"]');
 const fullnameInput = document.querySelector('input[placeholder="fullname"]');
 const emailInput = document.querySelector('input[placeholder="email"]');
@@ -22,8 +23,9 @@ function loadProfile(){
     .then(response => response.json())
     .then(resp => {
         if (resp.data) {
-            document.querySelector(".image-frame img").setAttribute("src", resp.data['img_url']);
-            imageInput.value = resp.data['img_url'];
+            document.querySelector(".image-frame img").setAttribute("src",
+                !resp.data['img_url'] ? resp.data['img_url'] : defaultProfileImg);
+            imageInput.value = !resp.data['img_url'] ? resp.data['img_url'] : defaultProfileImg;
             fullnameInput.value = resp.data['full_name'];
             emailInput.value = resp.data['email'];
         }
