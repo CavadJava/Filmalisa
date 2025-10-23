@@ -1,18 +1,22 @@
 console.log("Search started");
 
 let moviesData = [];
-let currentPage = 1;
-let itemsPerPage = 7;
 
 // API URLs
 const BASE_URL = "https://api.sarkhanrahimli.dev/api/filmalisa";
 const MOVIES_URL = `${BASE_URL}/movies`
 // Initialize - Load movies on page load
+
+const searchInput = document.querySelector("#search-input");
+const searchBtn = document.querySelector("a .search-input");
+if(searchBtn){
+    searchBtn.addEventListener("click", () => loadMovies(searchInput.value));
+}
+
 loadMovies();
 
-
 // Load and display movies
-function loadMovies() {
+function loadMovies(searchValue) {
     const token = localStorage.getItem("token");
     if (!token) {
         window.location.href = "/Filmalisa/admin/pages/login.html";
@@ -34,7 +38,11 @@ function loadMovies() {
         .then(resp => {
             console.log("Movies loaded:", resp);
             moviesData = resp['data'];
-            displayMovies(moviesData);
+            if(searchValue) {
+                displayMovies(moviesData.filter(movie => movie.title.toLowerCase().includes(searchValue)));
+            } else {
+                displayMovies(moviesData);
+            }
         })
         .catch(error => {
             console.error("Error loading movies:", error);

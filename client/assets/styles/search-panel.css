@@ -22,3 +22,9 @@ body {
 #search-input::placeholder {
     color: #BCBCBC
 }
+
+#search-input:focus{
+    width: 58px;
+    height: 57px;
+}
+
