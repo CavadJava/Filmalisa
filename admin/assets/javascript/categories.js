@@ -1,5 +1,9 @@
 console.log("Categories started");
 
+let categoryData = [];
+let currentPage = 1;
+let itemsPerPage = 10;
+
 // API URLs
 const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa/admin";
 const CATEGORY_URL = `${API_BASE}/category`;
