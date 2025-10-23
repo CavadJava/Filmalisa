@@ -11,15 +11,15 @@ body {
     height: 946px;
 }
 
-.account-icon img {
+.account-icon {
     width: 200px;
     height: 200px;
-    object-fit: cover;
     border-radius: 50%;
-    border: 3px solid #3ddc84;
     display: block;
     margin: 0 auto;
-     background-color: #000; 
+}
+.account-icon img{
+    position: absolute;
 }
 
 .account-title {
@@ -29,6 +29,9 @@ body {
     line-height: 80px;
     color: #C3C8D4;
     font-family: "Numans", sans-serif;
+}
+input .form-password,.form-fullName,.form-profile-url{
+    color:#475069
 }
 .form-control::placeholder {
     color: #475069;
