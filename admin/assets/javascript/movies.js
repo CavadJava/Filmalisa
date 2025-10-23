@@ -1,6 +1,6 @@
 console.log("Movies started");
 
-let categoriesData = [];
+let moviesData = [];
 let currentPage = 1;
 let itemsPerPage = 10;
 
@@ -35,7 +35,6 @@ setTimeout(auth,3000)
 function auth(){
     if (localStorage.getItem("role") !== "admin") {
         window.location.href = "/Filmalisa/admin/pages/login.html";
-        localStorage.removeItem("role")
     }
 }
 
@@ -82,7 +81,8 @@ function loadMovies() {
     })
     .then(resp => {
         console.log("Movies loaded:", resp);
-        displayMovies(1)
+        moviesData = resp['data'];
+        displayPage(1)
     })
     .catch(error => {
         console.error("Error loading movies:", error);
@@ -150,7 +150,6 @@ function loadActors() {
         resp.data.forEach(actor => {
             result += `<option value="${actor.id}">${actor.name}</option>`;
         });
-        displayPage(1);
         document.querySelector("#createMoviesModal .actor").innerHTML = result;
         document.querySelector("#updateMoviesModal .actor").innerHTML = result;
     })
@@ -165,7 +164,7 @@ function displayPage(page){
     currentPage = page;
     let startIndex = (page - 1) * itemsPerPage;
     let endIndex = startIndex + itemsPerPage;
-    let pageData = categoriesData.slice(startIndex, endIndex);
+    let pageData = moviesData.slice(startIndex, endIndex);
     setUserList(pageData, page);
     setPagination();
 }
@@ -174,12 +173,12 @@ function setUserList(data, page){
     let result = "";
     let startIndex = (page - 1) * itemsPerPage;
 
-    data.forEach((ud, index) => {
+    data.forEach((movie, index) => {
         let order = startIndex + index + 1;
         let row = `
           <tr>
+                <td class="movie-id" style="display: none">${movie.id}</td>
                 <td class="order-id">${order}</td>
-                <td class="movie-id" style="none">${movie.id}</td>
                 <td class="movie-image"><img src="${movie.cover_url}" alt="${movie.title}" class="actor-image"></td>
                 <td>${movie.title}</td>
                 <td class="movie-overview crop">${movie.overview}</td>
@@ -204,7 +203,7 @@ function setUserList(data, page){
 }
 
 function setPagination(){
-    let totalPages = Math.ceil(categoriesData.length / itemsPerPage);
+    let totalPages = Math.ceil(moviesData.length / itemsPerPage);
 
     if(totalPages > 0) {
         let result = `<ul class="pagination">`;
@@ -222,6 +221,7 @@ function setPagination(){
 }
 
 
+// Deprecated
 // Display movies in table
 function displayMovies(movies) {
     const tbody = document.querySelector("table tbody");
