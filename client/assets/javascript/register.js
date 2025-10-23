@@ -8,10 +8,23 @@ const guestEmail = localStorage.getItem("guest_email");
 if (guestEmail) {
     document.querySelector(".form-email").value = guestEmail;
 }
+const passwordEl = document.querySelector(".form-password");
 const registerBtn = document.querySelector(".form-registerBtn");
 if (registerBtn) {
     registerBtn.addEventListener("click", handleRegisterUser)
 }
+
+const eyeTogglePassword = document.querySelector(".eye-toggle");
+
+if (eyeTogglePassword) {
+    eyeTogglePassword.addEventListener("click", () => {
+        const type =
+            passwordEl.getAttribute("type") === "password" ? "text" : "password";
+        passwordEl.setAttribute("type", type);
+        eyeTogglePassword.classList.toggle("visible");
+    });
+}
+
 
 // Register New User
 function handleRegisterUser() {

@@ -112,7 +112,7 @@ body {
 
 .input-box .input-svg,
 .input-box .toogle,
-.input-box .eye {
+.input-box .eye-toggle {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -125,7 +125,7 @@ body {
     left: 16px;
 }
 
-.input-box .eye {
+.input-box .eye-toggle {
     right: 16px;
 }
 
