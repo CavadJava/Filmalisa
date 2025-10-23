@@ -142,7 +142,7 @@ input .form-password,.form-fullName,.form-profile-url{
 .input-box input:focus {
     background-color: #0000001A;
     border: 1px solid #9B51E0;
-    color: #fff;
+    color: #475069;
     outline: none;
 }
 
