@@ -2,7 +2,8 @@
 const token = localStorage.getItem("token");
 
 //API bazası 
-const BASE_URL = "https://api.sarkhanrahimli.dev/api/filmalisa/movies/favorites";
+const BASE_URL = "https://api.sarkhanrahimli.dev/api/filmalisa";
+const CATEGORY_URL = `${BASE_URL}/category`;
 if (!token) window.location.href = "/Filmalisa/admin/pages/login.html";
 
 
