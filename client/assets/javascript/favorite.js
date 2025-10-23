@@ -5,6 +5,8 @@ const token = localStorage.getItem("token");
 const BASE_URL = "https://api.sarkhanrahimli.dev/api/filmalisa";
 const CATEGORY_URL = `${BASE_URL}/categories`;
 
+if (!token) window.location.href = "/Filmalisa/index.html";
+
 
 // 1. Sevimliləri gətir (GET)
 async function getFavorites() {
