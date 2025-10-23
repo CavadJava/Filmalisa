@@ -6,7 +6,7 @@
 @import url("landing/contact.css");
 @import url("landing/faq.css");
 @import url("landing/footer.css");
-
+@import url("/client/assets/styles/profile.css");
 :root {
     --bg: #0b0b0f;
     --text: #fff;
