@@ -1,6 +1,6 @@
 console.log("Actors started");
 
-let userData = [];
+let actorData = [];
 let currentPage = 1;
 let itemsPerPage = 10;
 
@@ -30,7 +30,6 @@ setTimeout(auth,3000)
 function auth(){
     if (localStorage.getItem("role") !== "admin") {
         window.location.href = "/Filmalisa/admin/pages/login.html";
-        localStorage.removeItem("role")
     }
 }
 
@@ -77,7 +76,7 @@ function loadActors() {
     })
     .then(resp => {
         console.log("Actors loaded:", resp);
-        userData = resp['data'];
+        actorData = resp['data'];
         displayPage(1);
     })
     .catch(error => {
@@ -90,7 +89,7 @@ function displayPage(page){
     currentPage = page;
     let startIndex = (page - 1) * itemsPerPage;
     let endIndex = startIndex + itemsPerPage;
-    let pageData = userData.slice(startIndex, endIndex);
+    let pageData = actorData.slice(startIndex, endIndex);
     setUserList(pageData, page);
     setPagination();
 }
@@ -127,7 +126,7 @@ function setUserList(data, page){
 
 
 function setPagination(){
-    let totalPages = Math.ceil(userData.length / itemsPerPage);
+    let totalPages = Math.ceil(actorData.length / itemsPerPage);
 
     if(totalPages > 0) {
         let result = `<ul class="pagination">`;
