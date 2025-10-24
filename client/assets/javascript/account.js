@@ -26,8 +26,8 @@ function loadProfile(){
             document.querySelector(".image-frame img").setAttribute("src",
                 resp.data['img_url'] ? resp.data['img_url'] : defaultProfileImg);
             imageInput.value = resp.data['img_url'] ? resp.data['img_url'] : defaultProfileImg;
-            fullnameInput.value = resp.data['full_name'];
-            emailInput.value = resp.data['email'];
+            fullnameInput.value = resp.data['full_name'] ||"" ;
+            emailInput.value = resp.data['email'] ||"" ;
         }
         console.log("Profile loaded:", resp);
     })
