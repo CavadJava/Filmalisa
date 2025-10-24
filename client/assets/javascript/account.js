@@ -1,6 +1,5 @@
 console.log("Account started");
-// document.addEventListener("DOMContentLoaded", async () => {
-
+let profileData = [];
 const defaultProfileImg = "/Filmalisa/client/assets/images/teacher.svg";
 const imageInput = document.querySelector('input[placeholder="profile image url"]');
 const fullnameInput = document.querySelector('input[placeholder="fullname"]');
@@ -23,6 +22,7 @@ function loadProfile(){
     .then(response => response.json())
     .then(resp => {
         if (resp.data) {
+            profileData = resp['data'];
             document.querySelector(".image-frame img").setAttribute("src",
                 resp.data['img_url'] ? resp.data['img_url'] : defaultProfileImg);
             imageInput.value = resp.data['img_url'] ? resp.data['img_url'] : defaultProfileImg;
@@ -93,13 +93,13 @@ saveButton.addEventListener("click", async (e) => {
 
     const token = localStorage.getItem("token");
     if (!token) {
-        alert("❌ No token found! Please log in first.");
+        alert("No token found! Please log in first.");
         return;
     }
 
     const data = {
         full_name: fullnameInput.value.trim(),
-        email: emailInput.value.trim(),
+        email: profileData['email'],
         img_url: imageInput.value.trim(),
         password: passwordInput.value.trim(),
     };
@@ -133,5 +133,3 @@ saveButton.addEventListener("click", async (e) => {
         alert("❌ Error updating profile: " + error.message);
     }
 });
-
-// });
