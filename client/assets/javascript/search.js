@@ -9,11 +9,13 @@ const MOVIES_URL = `${BASE_URL}/movies`
 
 const searchInput = document.querySelector("#search-input");
 const searchBtn = document.querySelector("a .search-input");
+
+// Load Movies
+loadMovies();
+
 if(searchBtn){
     searchBtn.addEventListener("click", () => loadMovies(searchInput.value));
 }
-
-loadMovies();
 
 // Load and display movies
 function loadMovies(searchValue) {

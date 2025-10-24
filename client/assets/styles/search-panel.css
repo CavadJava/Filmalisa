@@ -27,4 +27,16 @@ body {
     width: 58px;
     height: 57px;
 }
+.card.position-relative.border-0 {
+    cursor: pointer;
+}
 
+.card-body.position-absolute.border-0 {
+    top: 270px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card-body.position-absolute.border-0:hover {
+    top: 220px;
+    animation: pulse 3s 0.3s infinite;
+}
