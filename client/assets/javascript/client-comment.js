@@ -5,18 +5,18 @@ const request = new URLSearchParams(window.location.search)
 let profileData = [];
 // API BASE URL
 const COMMENTS_BASE_URL = "https://api.sarkhanrahimli.dev/api/filmalisa";
-const GET_PROFILE = `${COMMENTS_BASE_URL}/profile`;
 const LIST_COMMENT = `${COMMENTS_BASE_URL}/movies/${request.get('id')}/comments`;
+const POST_COMMENT = `${COMMENTS_BASE_URL}/movies/${request.get('id')}/comment`;
 console.log(LIST_COMMENT)
 
 const input = document.getElementById('comment-input');
 const sendBtn = document.getElementById('send-btn');
 
-// const text = input.value.trim();
-// if (!text) return;
-
 // Load Comments
 handlerComments();
+
+//Load and Post Comment
+sendBtn.addEventListener("click", handlerPostComment);
 
 // Handler Comments
 function handlerComments(){
@@ -35,22 +35,49 @@ function handlerComments(){
         console.error("Error loading comments:", error);
     });
 }
-async function loadProfile(){
-    try {
-        fetch(`${GET_PROFILE}`, {
-            method: "GET",
-            headers: {
-                "Authorization": `Bearer ${localStorage.getItem("token")}`
-            }
-        })
-        .then(response => response.json())
-    }catch (error){
-        console.error("Error loading movie:", error);
+function handlerPostComment(){
+    // Check if input is empty
+    if (!input.value.trim()) {
+        alert("Zəhmət olmasa şərh yazın!");
+        return;
     }
+
+    const body = {
+        "comment": input.value.trim()
+    };
+    fetch(POST_COMMENT, {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+    })
+    .then(response => response.json())
+    .then(resp => {
+        console.log("Comment posted:", resp);
+        // Clear input after successful post
+        input.value = '';
+        // Reload comments
+        handlerComments();
+    })
+    .catch(error => {
+        console.error("Error posting comment:", error);
+        alert("Şərh göndərilərkən xəta baş verdi!");
+    });
 }
 
 function displayData(data) {
     const commentsContainer = document.getElementById('comments-container');
+
+    // Clear container before adding new comments to avoid duplicates
+    commentsContainer.innerHTML = '';
+
+    // Check if there are any comments
+    if (!data || data.length === 0) {
+        commentsContainer.innerHTML = '<p class="text-light text-center">Hələ ki şərh yoxdur. İlk şərhi siz yazın!</p>';
+        return;
+    }
 
     data.forEach(comment => {
         let lastDate = getCommentDate(comment);
@@ -66,15 +93,11 @@ function displayData(data) {
                 </div>
             </div>
             `;
-        commentsContainer.innerHTML+=row;
+        commentsContainer.innerHTML += row;
     });
-
-    // Inputu təmizlə
-    input.value = '';
 }
 function getCommentDate(data){
     const createdAt = new Date(data.created_at);
-    const date = new Date();
 
     const options = {
         day: '2-digit',      // DD (e.g., 05)
@@ -87,5 +110,6 @@ function getCommentDate(data){
 
     const formatter = new Intl.DateTimeFormat('en-US', options);
 
-    return formatter.format(date);
+    // Use createdAt instead of current date
+    return formatter.format(createdAt);
 }
