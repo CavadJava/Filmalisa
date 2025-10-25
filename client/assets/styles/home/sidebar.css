@@ -11,6 +11,7 @@
     background-image: url(../../images/sidebar/home1.png);
     background-repeat: no-repeat;
     background-position: center center;
+    color: #FFFFFF;
     width: 56px; 
     height: 56px; 
     display: inline-block;
@@ -73,4 +74,9 @@
     color: #d946ef;
     font-size: 2rem;
     margin-bottom: 1px;
+}
+.sidebar a.active-page {
+  opacity: 1;
+  color: #0FEFFD;
+  border-radius: 10px;
 }
