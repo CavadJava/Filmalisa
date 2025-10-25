@@ -4,6 +4,29 @@ console.log("Index page started")
 const BASE_URL = "https://api.sarkhanrahimli.dev/api/filmalisa";
 const CONTACT_URL = `${BASE_URL}/contact`;
 
+const signInBtn = document.querySelector(".signInBtn");
+const profileMenu = document.getElementById("profileMenu");
+const profileIcon = document.getElementById("profileIcon");
+const dropdownMenu = document.getElementById("dropdownMenu");
+const logoutBtn = document.querySelector(".logoutBtn");
+const userImage = document.getElementById("userImage");
+const username = document.getElementById("username");
+
+const token = localStorage.getItem("token");
+const userPhoto = localStorage.getItem("userPhoto");
+const userName = localStorage.getItem("userName");
+
+logoutBtn.addEventListener(`click`, () => {
+    const token = localStorage.getItem(`token`);
+
+    if (token) {
+        localStorage.setItem(`token`,token)
+        localStorage.setItem(`role`,'admin')
+        localStorage.setItem(`role`,'client')
+        window.location.href = `/Filmalisa/index.html`
+    }
+})
+
 function main(){
     let emailInput = document.querySelector("#email-lan-page");
     if(emailInput.value!=null && emailInput.value.length>1){
@@ -55,3 +78,48 @@ function handlerContact(){
 function validation(fullName, email, reason){
 
 }
+
+// Token yoxlanışı
+if (token) {
+    signInBtn.style.display = "none";
+    profileMenu.style.display = "block";
+
+    // istifadəçi şəkli varsa onu göstər
+    if (userPhoto) {
+        userImage.src = userPhoto;
+    } else {
+        userImage.src = "/client/assets/images/profile.png"; // default icon
+    }
+
+    // ad göstər
+    username.textContent = userName || "User";
+} else {
+    signInBtn.style.display = "block";
+    profileMenu.style.display = "none";
+}
+
+// Profil ikonuna klik → menyunu aç / bağla
+// profileIcon.addEventListener("click", () => {
+//     dropdownMenu.style.display === "block" ? "none" : "block";
+// });
+profileIcon.addEventListener("click", (e) => {
+    e.stopPropagation(); // kənara klikdə bağlanmasın deyə
+    dropdownMenu.style.display =
+        dropdownMenu.style.display === "block" ? "none" : "block";
+});
+
+
+// Logout
+logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userPhoto");
+    localStorage.removeItem("userName");
+    window.location.reload();
+});
+
+// Kənara klik → menyu bağlansın
+window.addEventListener("click", (e) => {
+    if (!profileMenu.contains(e.target)) {
+        dropdownMenu.style.display = "none";
+    }
+});
