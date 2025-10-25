@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,148 +33,157 @@
 
 <!-- Main Content -->
 <main>
-<div class="main-content">
+    <div class="main-content">
         <!-- Main Content -->
-    <div class="container-fluid">
-        <section>
-            <div class="main-content">
-                <div class="jumbotron jumbotron-fluid text-white hero-section"
-                     style="background-image: url(../assets/images/detail/header.jpg); background-size: cover; background-position: center;">
-                    <div class="container hero-container">
-                        <p class="text-custom-purple fs-6 hero-category-name">MaileHereko / TV Shows</p>
-                        <h1 class="display-3 fw-normal text-light hero-title">lost In space</h1></div>
+        <div class="container-fluid">
+            <section>
+                <div class="main-content">
+                    <div class="jumbotron jumbotron-fluid text-white hero-section"
+                         style="background-image: url(../assets/images/detail/header.jpg); background-size: cover; background-position: center;">
+                        <div class="container hero-container">
+                            <p class="text-custom-purple fs-6 hero-category-name">MaileHereko / TV Shows</p>
+                            <h1 class="display-3 fw-normal text-light hero-title">lost In space</h1></div>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </div>
-    <!-- Main Content -->
-    <div class="container">
-        <section class="details-section">
-            <div style="background-color: #1D1D1D;" class="detail-img">
-                <img src="" alt="detail-img"
-                     class="img-thumbnail movie-detail-img"
-                     data-bs-toggle="modal"
-                     data-bs-target="#imageModal"
-                     style="cursor: pointer;">
-                <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body text-center movie-iframe-fragman">
+            </section>
+        </div>
+        <!-- Main Content -->
+        <div class="container">
+            <section class="details-section">
+                <div style="background-color: #1D1D1D;" class="detail-img">
+                    <img src="" alt="detail-img"
+                         class="img-thumbnail movie-detail-img"
+                         data-bs-toggle="modal"
+                         data-bs-target="#imageModal"
+                         style="cursor: pointer;">
+                    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body text-center movie-iframe-fragman">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="details-container py-5 text-light">
-                <!-- Başlıq və link -->
-                <div style="padding-right: 130px;" class="d-flex align-items-center justify-content-center flex-wrap">
-                    <h2 style="  font-weight: 700; font-size: 30px ;" class=" mb-0">Don't Miss Out, Click Here</h2>
-                    <button style="color: #FFAD49; background-color: black; margin-left: 30px;"
-                            class="btn btn-warning btn-sm fw-semibold"><a href="#" class="watch-link">Watch Link</a>
-                    </button>
-                    <button data-id="1" style="margin-left: 700px; background-color: black; border: 1px solid whitesmoke; "
-                            class="btn btn-circle btn-favorite">
-                        <span><i class="fa-solid fa-plus"></i></span>
-                    </button>
-                </div>
-
-
-                <p style="font-size: 22px; line-height: 32px; color: #8E95A9; font-weight: 400;"
-                   class="mt-3 text-secondary movie-description">
-                </p>
-
-
-                <div class="row mt-4 gy-3">
-                    <div class="col-md-3">
-                        <p id="movie-imdb">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9.15327 2.34001L10.3266 4.68668C10.4866 5.01334 10.9133 5.32668 11.2733 5.38668L13.3999 5.74001C14.7599 5.96668 15.0799 6.95334 14.0999 7.92668L12.4466 9.58001C12.1666 9.86001 12.0133 10.4 12.0999 10.7867L12.5733 12.8333C12.9466 14.4533 12.0866 15.08 10.6533 14.2333L8.65994 13.0533C8.29994 12.84 7.70661 12.84 7.33994 13.0533L5.34661 14.2333C3.91994 15.08 3.05327 14.4467 3.42661 12.8333L3.89994 10.7867C3.98661 10.4 3.83327 9.86001 3.55327 9.58001L1.89994 7.92668C0.926606 6.95334 1.23994 5.96668 2.59994 5.74001L4.72661 5.38668C5.07994 5.32668 5.50661 5.01334 5.66661 4.68668L6.83994 2.34001C7.47994 1.06668 8.51994 1.06668 9.15327 2.34001Z" stroke="#FFAD49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span id="rate"></span>
-                        </p>
-                        <div class="small text-secondary">IMDB Rating</div>
+                <div class="details-container py-5 text-light">
+                    <!-- Başlıq və link -->
+                    <div style="padding-right: 130px;"
+                         class="d-flex align-items-center justify-content-center flex-wrap">
+                        <h2 style="  font-weight: 700; font-size: 30px ;" class=" mb-0">Don't Miss Out, Click Here</h2>
+                        <button style="color: #FFAD49; background-color: black; margin-left: 30px;"
+                                class="btn btn-warning btn-sm fw-semibold"><a href="#" class="watch-link">Watch Link</a>
+                        </button>
+                        <button data-id="1"
+                                style="margin-left: 700px; background-color: black; border: 1px solid whitesmoke; "
+                                class="btn btn-circle btn-favorite">
+                            <span><i class="fa-solid fa-plus"></i></span>
+                        </button>
                     </div>
 
-                    <div class="col-md-3">
-                        <div class="small text-secondary">Runtime</div>
-                        <div class="fw-semibold movie-runtime">N/A</div>
-                    </div>
 
-                    <div class="col-md-3">
-                        <div class="small text-secondary">Age Rating</div>
-                        <div class="fw-semibold movie-adult">
-                            <span class="badge bg-secondary">N/A</span>
+                    <p style="font-size: 22px; line-height: 32px; color: #8E95A9; font-weight: 400;"
+                       class="mt-3 text-secondary movie-description">
+                    </p>
+
+
+                    <div class="row mt-4 gy-3">
+                        <div class="col-md-3">
+                            <p id="movie-imdb">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.15327 2.34001L10.3266 4.68668C10.4866 5.01334 10.9133 5.32668 11.2733 5.38668L13.3999 5.74001C14.7599 5.96668 15.0799 6.95334 14.0999 7.92668L12.4466 9.58001C12.1666 9.86001 12.0133 10.4 12.0999 10.7867L12.5733 12.8333C12.9466 14.4533 12.0866 15.08 10.6533 14.2333L8.65994 13.0533C8.29994 12.84 7.70661 12.84 7.33994 13.0533L5.34661 14.2333C3.91994 15.08 3.05327 14.4467 3.42661 12.8333L3.89994 10.7867C3.98661 10.4 3.83327 9.86001 3.55327 9.58001L1.89994 7.92668C0.926606 6.95334 1.23994 5.96668 2.59994 5.74001L4.72661 5.38668C5.07994 5.32668 5.50661 5.01334 5.66661 4.68668L6.83994 2.34001C7.47994 1.06668 8.51994 1.06668 9.15327 2.34001Z"
+                                          stroke="#FFAD49" stroke-width="1.5" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
+                                </svg>
+                                <span id="rate"></span>
+                            </p>
+                            <div class="small text-secondary">IMDB Rating</div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="small text-secondary">Runtime</div>
+                            <div class="fw-semibold movie-runtime">N/A</div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="small text-secondary">Age Rating</div>
+                            <div class="fw-semibold movie-adult">
+                                <span class="badge bg-secondary">N/A</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="small text-secondary">Added Date</div>
+                            <div class="fw-semibold movie-created-at">N/A</div>
                         </div>
                     </div>
 
-                    <div class="col-md-3">
-                        <div class="small text-secondary">Added Date</div>
-                        <div class="fw-semibold movie-created-at">N/A</div>
+                    <!-- Top cast -->
+                    <h5 class="fw-bold mt-5 mb-3">top cast</h5>
+
+                    <div class="row g-3 cast-grid">
                     </div>
                 </div>
+            </section>
+            <section>
+                <div class="container py-5" style="max-width: 800px;">
+                    <!-- Comments Section Title -->
+                    <h5 class="fw-bold mb-4 text-light">Comments</h5>
 
-                <!-- Top cast -->
-                <h5 class="fw-bold mt-5 mb-3">top cast</h5>
+                    <!-- Input area -->
+                    <div class="d-flex align-items-center mb-4">
+                        <input id="comment-input" type="text" class="form-control input-with-icon"
+                               placeholder="your comment...">
 
-                <div class="row g-3 cast-grid">
+                        <button id="send-btn" class="send-btn">
+                            <svg width="31" height="30" viewBox="0 0 31 30" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.963576 29.25L30.0746 15L0.963576 0.75L0.949707 11.8333L21.7532 15L0.949707 18.1667L0.963576 29.25Z"
+                                      fill="#F2F2F2"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Comments Container -->
+                    <div id="comments-container">
+                        <!-- Comments will be loaded here dynamically -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- todo  -->
+        <!-- Category - Action Section  -->
+        <div class="container">
+            <div class="container-fluid action-category-section" style="padding:0 70px;">
+                <div class="row flex-row justify-content-around">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item text-white active category-breadcrumb"
+                                    style="font-size: 35px;font-weight: 500; padding-top: 28px"
+                                    aria-current="page">
+                                    Action
+                                    <svg width="35" height="35" viewBox="0 0 35 35" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.7285 9.20767L20.9902 16.4694L13.7285 23.7311L12.7275 22.7301L18.9883 16.4694L18.458 15.9381L12.7275 10.2086L13.7285 9.20767Z"
+                                              fill="#0FEFFD" stroke="white" stroke-width="1.5"/>
+                                    </svg>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="card-group action-card-group border-0">
+                    <div class="row row-cols-2 row-cols-lg-2 row-cols-sm-2 row-cols-md-2 g-3 border-0">
+                    </div>
                 </div>
             </div>
-        </section>
-        <section>
-            <div class="container py-5" style="max-width: 800px;">
-            <!-- Comments Section Title -->
-            <h5 class="fw-bold mb-4 text-light">Comments</h5>
-
-            <!-- Input area -->
-            <div class="d-flex align-items-center mb-4">
-                <input id="comment-input" type="text" class="form-control input-with-icon" placeholder="your comment...">
-
-                <button id="send-btn" class="send-btn">
-                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.963576 29.25L30.0746 15L0.963576 0.75L0.949707 11.8333L21.7532 15L0.949707 18.1667L0.963576 29.25Z"
-                              fill="#F2F2F2"/>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Comments Container -->
-            <div id="comments-container">
-                <!-- Comments will be loaded here dynamically -->
-            </div>
         </div>
-        </section>
     </div>
-
-     <!-- todo  -->
-     <!-- Category - Action Section  -->
-    <div class="container">
-        <div class="container-fluid action-category-section" style="padding:0 70px;">
-         <div class="row flex-row justify-content-around">
-             <div class="col">
-                 <nav aria-label="breadcrumb">
-                     <ol class="breadcrumb">
-                         <li class="breadcrumb-item text-white active category-breadcrumb" style="font-size: 35px;font-weight: 500; padding-top: 28px"
-                             aria-current="page">
-                             Action
-                             <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <path d="M13.7285 9.20767L20.9902 16.4694L13.7285 23.7311L12.7275 22.7301L18.9883 16.4694L18.458 15.9381L12.7275 10.2086L13.7285 9.20767Z"
-                                       fill="#0FEFFD" stroke="white" stroke-width="1.5"/>
-                             </svg>
-                         </li>
-                     </ol>
-                 </nav>
-             </div>
-         </div>
-         <div class="card-group action-card-group border-0">
-             <div class="row row-cols-2 row-cols-lg-2 row-cols-sm-2 row-cols-md-2 g-3 border-0">
-             </div>
-         </div>
-     </div>
-    </div>
-
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/javascript/comment-edit.js"></script>
+<script src="../assets/javascript/client-comment.js"></script>
 <script src="../assets/javascript/detail.js"></script>
 </body>
 </html>
