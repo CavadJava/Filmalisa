@@ -4,6 +4,7 @@ body {
     box-sizing: border-box;
     background-color: #1a1a1a;
     font-family: "Raleway", sans-serif;
+    
 }
 
 .app {
@@ -12,7 +13,7 @@ body {
 
 .sidebar {
     width: 256px;
-    height: 1452px;
+    height: 800px;
     padding: 20px 0;
     border-right: 1px #1E1E1E;
     color: #FFFFFF;
