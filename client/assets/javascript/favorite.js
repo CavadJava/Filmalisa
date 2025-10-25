@@ -56,7 +56,7 @@ function renderFavorites(favorites) {
                 categoryRow +=
                     `
                         <div class="col">
-                            <div class="card position-relative border-0">
+                            <div class="card position-relative border-0" style="cursor: pointer;" onclick="window.location.href='detail.html?id=${movieRow.id}'">
                                 <img src="${movieRow.cover_url}" style="width:292px; height:440px" class="card-img-top favorite-card-img"
                                      alt="...">
                                 <div class="card-body position-absolute border-0" style="bottom:0px">

@@ -57,7 +57,7 @@ function displayMovies(movies) {
     movies.forEach(movie => {
         const row = `
             <div class="col">
-                <div class="card position-relative border-0" style="background-color: #1a1a1a">
+                <div class="card position-relative border-0" style="background-color: #1a1a1a; cursor: pointer;" onclick="window.location.href='detail.html?id=${movie.id}'">
                     <img src="${movie.cover_url}" style="width:292px; height:440px" class="card-img-top favorite-card-img"
                          alt="...">
                     <div class="card-body position-absolute border-0" style="bottom:0px">
