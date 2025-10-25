@@ -14,6 +14,11 @@ loadMoviesAction();
 // Load Comedy Movies
 loadMoviesComedy();
 
+
+function openDetailOfMovie(id){
+    window.location.href = `/Filmalisa/client/pages/detail.html?id=${id}`;
+}
+
 // Load movies
 function loadMoviesAction() {
     const token = localStorage.getItem("token");
@@ -33,7 +38,8 @@ function loadMoviesAction() {
                 switch (movie.category.name) {
                     case 'Action': {
                         let row = `<div class="col">
-                        <div class="card position-relative border-0" style="cursor: pointer;" onclick="window.location.href='detail.html?id=${movie.id}">
+                        <div class="card movie-card position-relative border-0" style="cursor: pointer;"
+                         onclick="openDetailOfMovie(${movie.id})">
                             <img src="${movie.cover_url}" style="width:292px;height:440px" class="card-img-top comedy-category-card-img"
                                  alt="...">
                                 <div class="card-body position-absolute border-0" style="bottom:0px">
