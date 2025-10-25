@@ -1,5 +1,6 @@
-let authUrl = "https://api.sarkhanrahimli.dev/api/filmalisa/auth/login";
 console.log("auth started")
+
+let authUrl = "https://api.sarkhanrahimli.dev/api/filmalisa/auth/login";
 
 class Authenticate {
     email;
@@ -34,6 +35,17 @@ class Authenticate {
 
 }
 
+const loginBtn = document.querySelector(".loginBtn")
+loginBtn.addEventListener(`click`, () => {
+    const token = localStorage.getItem(`token`);
+
+    if (token) {
+        localStorage.setItem(`token`,token)
+        localStorage.setItem(`role`,'admin')
+        window.location.href = `/Filmalisa/admin/pages/dashboard.html`
+    }
+})
+
 function auth(){
     console.log("auth started")
     let email = document.querySelector(".email-input").value;
@@ -50,6 +62,7 @@ function auth(){
                 window.localStorage.removeItem("token");
             }
             window.localStorage.setItem("token", response['data'].tokens['access_token']);
+            localStorage.setItem(`role`,'admin')
             location.href="/Filmalisa/admin/pages/dashboard.html";
         }else{
             console.log("auth error")
