@@ -2,7 +2,7 @@ console.log("Comments started");
 
 let commentData = [];
 let currentPage = 1;
-let itemsPerPage = 7;
+let itemsPerPage = 5;
 
 // API URLs - Comments API endpoint-ləri
 const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa";

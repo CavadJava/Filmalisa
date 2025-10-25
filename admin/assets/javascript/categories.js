@@ -2,7 +2,7 @@ console.log("Categories started");
 
 let categoryData = [];
 let currentPage = 1;
-let itemsPerPage = 7;
+let itemsPerPage = 5;
 
 // API URLs
 const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa/admin";
