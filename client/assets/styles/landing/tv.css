@@ -38,8 +38,57 @@
     font-size: 24px;
     line-height: 30px;
 }
+.feature-media {
+    position: relative;
+    width: 700px;
+  
+     max-width: 90vw;
+}
+.tv-frame {
+    width: 100%;
+      height: auto;
+    display: block;
+    z-index: 2;
+    position: relative;
+}
+.tv-video {
+   position: absolute;
+  top: 21%;    
+  left: 13%;    
+  width: 73%;     
+  height: 54%;    
+  object-fit: cover;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 1;
+ 
+}
+
+
 .feature-img {
-    padding-top: 72px;
+padding-top: 72px;
+    position: relative;
+  width: 600px; 
+   max-width: 90vw;
+
+}
+.tv-img {
+     width: 100%;
+       height: auto;
+  display: block;
+  z-index: 2;
+  position: relative;
+}
+.tv-video2 {
+    position: absolute;
+  top: 22%;      
+  left: 19%;     
+  width: 61%;   
+  height: 40%;   
+  object-fit: cover;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 1;
 }
 /* .container-section1 {
      max-width: 1200px;
