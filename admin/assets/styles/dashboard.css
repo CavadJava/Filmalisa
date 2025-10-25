@@ -15,21 +15,41 @@
   margin-top: 79px;
   margin-left: 24px;
 }
+.row.g-3.mt-0 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 25px; 
+}
+.dashboard-container .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 25px; /* Kartlar arası məsafə */
+}
+
+.dashboard-container .col-lg-3 {
+  flex: 1 1 calc(25% - 25px); /* 4 kart bir sırada */
+  max-width: calc(25% - 25px);
+}
 
 .dashboard-card {
   border: none;
-  border-radius: 15px;
+  border-radius: 30px;
   padding: 25px 20px;
   color: white;
   text-align: left;
-  background: #1c1c1c;
-  width: 233px;
-  height: 140px;
+  background: #2D2D2D;
+   /* min-width: 220px; */
+ 
+  /* width: 234px; */
+  height: 203px;
   display: flex;
   gap: 20px;
   flex-direction: column;
   justify-content: center;
   transition: all 0.3s ease;
+  
 }
 
 .dashboard-card h5 {
