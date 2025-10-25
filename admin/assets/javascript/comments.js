@@ -43,8 +43,9 @@ setTimeout(auth,3000)
 // Handle Auth before login
 function auth(){
     if (localStorage.getItem("role") !== "admin") {
+        localStorage.removeItem(`token`)
+        localStorage.removeItem(`role`)
         window.location.href = "/Filmalisa/admin/pages/login.html";
-        localStorage.removeItem("role")
     }
 }
 
