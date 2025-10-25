@@ -12,16 +12,8 @@ const movieId = urlParams.get('id');
 if (!localStorage.getItem("token")) {
     window.location.href = "/Filmalisa/client/pages/login.html";
 }
-let imgThumbnail = document.querySelector(".img-thumbnail");
-if (imgThumbnail) {
-    imgThumbnail.addEventListener("mouseenter", () => {
-        imgThumbnail.style = " opacity: 0.8;" +
-            " transform: scale(1.02);" +
-            " transition: 0.3s;";
-    });
-}
-let fragman = document.querySelector('.movie-iframe-fragman');
 
+let fragman = document.querySelector('.movie-iframe-fragman');
 const imageModalEl = document.getElementById("imageModal");
 const createModalInstance = new bootstrap.Modal(imageModalEl);
 

@@ -24,6 +24,8 @@ body {
     background-color: #1D1D1D;
     padding-top: 120px;
     padding-left: 30px;
+    margin-right: 50px;
+    margin-left: 40px;
 }
 .modal-content {
   background-color: transparent; 
