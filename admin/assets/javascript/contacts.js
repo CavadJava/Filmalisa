@@ -124,19 +124,20 @@ function setUserList(data, page){
     document.querySelector(".page-table tbody").innerHTML = result;
 }
 
+// @Deprecated
 // function setPagination(){
 //     let totalPages = Math.ceil(contactData.length / itemsPerPage);
-
+//
 //     if(totalPages > 0) {
 //         let result = `<ul class="pagination">`;
-
+//
 //         // Page numbers
 //         for (let i = 1; i <= totalPages; i++) {
 //             result += `<li class="page-item ${i === currentPage ? 'active' : ''}" onclick="displayPage(${i})">
 //                 <a class="page-link"">${i}</a>
 //             </li>`;
 //         }
-
+//
 //         result += `</ul>`;
 //         document.querySelector(".pagination").innerHTML = result;
 //     }
