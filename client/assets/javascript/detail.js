@@ -146,6 +146,11 @@ function displayMovieDetails(movie) {
             favoriteBtn.style.backgroundColor = 'black';
             favoriteBtn.style.color = 'white';
         }
+
+        // Add click event listener for favorite toggle
+        favoriteBtn.onclick = function() {
+            toggleFavorite(movie.id, favoriteBtn);
+        };
     }
 
     // Update description
@@ -306,4 +311,53 @@ function loadMoviesAction() {
 
         })
         .catch(error => console.error("Error loading movies:", error));
+}
+
+// Toggle Favorite
+function toggleFavorite(movieId, button) {
+    const token = localStorage.getItem("token");
+    if (!token) {
+        alert("Please login to add favorites!");
+        return;
+    }
+
+    // Check current state
+    const isActive = button.classList.contains('active');
+
+    // Call API to toggle favorite
+    fetch(`${BASE_URL}/movie/${movieId}/favorite`, {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Failed to toggle favorite");
+        }
+        return response.json();
+    })
+    .then(resp => {
+        console.log("Favorite toggled:", resp);
+
+        // Toggle UI based on current state
+        if (isActive) {
+            // Was favorite, now remove it
+            button.classList.remove('active');
+            button.innerHTML = '<span><i class="fa-solid fa-plus"></i></span>';
+            button.style.backgroundColor = 'black';
+            button.style.color = 'white';
+        } else {
+            // Was not favorite, now add it
+            button.classList.add('active');
+            button.innerHTML = '<span><i class="fa-solid fa-check"></i></span>';
+            button.style.backgroundColor = '#0FEFFD';
+            button.style.color = 'black';
+        }
+    })
+    .catch(error => {
+        console.error("Error toggling favorite:", error);
+        alert("Failed to update favorite status!");
+    });
 }
