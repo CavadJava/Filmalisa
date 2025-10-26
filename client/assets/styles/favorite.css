@@ -14,10 +14,8 @@ body {
 }
 #favorites-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(504px, 1fr));
   gap: 25px;
   padding: 40px;
-  justify-items: center;
 }
 
 .movie-card {
@@ -60,12 +58,26 @@ body {
 
 .movie-info p {
   font-size: 14px;
-  color: #00bcd4; 
+  color: #00bcd4;
 }
 
 .movie-info .imdb {
   font-size: 13px;
   color: #ffd700;
+}
+.movie-title{
+  font-size: 35px;
+  font-weight: 500;
+  line-height: 40px;
+}
+.movie-category{
+  display: inline-block;
+  background: #1d1d1d80;
+  padding: 4px 8px;
+  border-radius: 0px 8px 0px 8px;
+  color: #0feffd;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 
