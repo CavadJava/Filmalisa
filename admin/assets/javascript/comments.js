@@ -7,12 +7,14 @@ let itemsPerPage = 5;
 // API URLs - Comments API endpoint-ləri
 const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa";
 const COMMENT_URL = `${API_BASE}/admin/comment`;
+const DELETE_COMMENT_URL = `${API_BASE}/admin/movies`;
 const COMMENTS_URL = `${API_BASE}/admin/comments`;
 const USERS_URL = `${API_BASE}/admin/users`;
 const MOVIES_URL = `${API_BASE}/admin/movies`;
 
 // Global variables - Hazırda seçilmiş comment ID-si
 let currentCommentId = null;
+let currentMovieId = null;
 
 // Bootstrap modal instances - Modal nümunələri
 const createModalEl = document.getElementById("createCommentsModal");
@@ -171,7 +173,7 @@ function setUserList(data, page){
                     </button>
                 </td>
                 <td>
-                    <button class="action-btn" onclick="openDeleteModal(${comment.id})">
+                    <button class="action-btn" onclick="openDeleteModal(${comment.id},${comment.movie.id})">
                         <i class="fa-solid fa-trash text-dark"></i>
                     </button>
                 </td>
@@ -365,8 +367,9 @@ function openViewModal(id, movieId, comment) {
 }
 
 // Open delete modal - Delete modalını aç
-function openDeleteModal(commentId) {
+function openDeleteModal(commentId,movieId) {
     currentCommentId = commentId;
+    currentMovieId = movieId;
     deleteModalInstance.show();
 }
 
@@ -387,7 +390,7 @@ function handleDeleteComment() {
 
     console.log("Deleting comment ID:", currentCommentId);
 
-    fetch(`${COMMENT_URL}/${currentCommentId}`, {
+    fetch(`${DELETE_COMMENT_URL}/${currentMovieId}/comment/${currentCommentId}`, {
         method: "DELETE",
         headers: {
             "Authorization": `Bearer ${token}`
