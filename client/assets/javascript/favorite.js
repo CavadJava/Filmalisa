@@ -1,87 +1,107 @@
 // Token localStorage-dən götürülür
 const token = localStorage.getItem("token");
 
-//API bazası 
+// API bazası 
 const BASE_URL = "https://api.sarkhanrahimli.dev/api/filmalisa";
-const CATEGORY_URL = `${BASE_URL}/categories`;
+const FAVORITES_URL = `${BASE_URL}/movies/favorites`;
 
 if (!token) window.location.href = "/Filmalisa/index.html";
 
-
-// 1. Sevimliləri gətir (GET)
+// Get favorites from API
 async function getFavorites() {
-  try {
-    const res = await fetch(`${CATEGORY_URL}`, {
-      method: "GET",
-      headers: {
-        "Authorization": `Bearer ${token}`,
-      },
-    });
+    try {
+        const res = await fetch(FAVORITES_URL, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
 
-    if (!res.ok) throw new Error("Favoritləri gətirmək alınmadı");
+        if (!res.ok) throw new Error("Failed to fetch favorites");
 
-    const data = await res.json();
-    console.log("Favorit siyahısı:", data);
-   
-     renderFavorites(data.data);
-  } catch (err) {
-    console.error("Xəta:", err);
-  }
+        const data = await res.json();
+        console.log("Favorite movies:", data);
+
+        renderFavorites(data.data);
+    } catch (err) {
+        console.error("Error:", err);
+        alert("Failed to load favorite movies!");
+    }
 }
 
-function renderFavorites(favorites) {
-    let container = document.querySelector(".favorite-container");
+function renderFavorites(movies) {
+    const container = document.getElementById('favorites-carousel');
 
-    let result = "";
+    if (!movies || movies.length === 0) {
+        container.innerHTML = '<p class="text-center text-secondary">No favorite movies yet.</p>';
+        return;
+    }
 
-    favorites.forEach(category => {
-        let categoryRow = `
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item text-white active favorite-breadcrumb"
-                    style="font-size: 35px;font-weight: 500; padding-top: 162px"
-                    aria-current="page">
-                    ${category.name}
-                    <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13.7285 9.20767L20.9902 16.4694L13.7285 23.7311L12.7275 22.7301L18.9883 16.4694L18.458 15.9381L12.7275 10.2086L13.7285 9.20767Z"
-                              fill="#0FEFFD" stroke="white" stroke-width="1.5"/>
-                    </svg>
-                </li>
-            </ol>
-        </nav>
-        <div class="card-group favorite-card-group flex-wrap border-0">
-            <div class="row row-cols-2 row-cols-lg-2 row-cols-sm-2 row-cols-md-2 g-3 border-0">`;
-        if(category.movies.length>0) {
-            category.movies.forEach((movieRow) => {
-                categoryRow +=
-                    `
-                        <div class="col">
-                            <div class="card position-relative border-0" style="cursor: pointer;" onclick="window.location.href='detail.html?id=${movieRow.id}'">
-                                <img src="${movieRow.cover_url}" style="width:292px; height:440px" class="card-img-top favorite-card-img"
-                                     alt="...">
-                                <div class="card-body position-absolute border-0" style="bottom:0px">
-                                    <h5 class="card-title favorite-card-title" style="color:#0FEFFD; font-size:14px;font-weight:400">
-                                    ${movieRow.title}
-                                    </h5>
-                                    <p class="card-text" >⭐ ${movieRow.imdb}
-                                    </p>
-                                    <p class="card-text favorite-card-title-text" style="font-size:32px">
-                                        <small class="text-white">${movieRow.title}</small></p>
-                                </div>
-                            </div>
+    // Split all movies into items of 6 for each carousel slide
+    const items = itemsArray(movies, 6);
+
+    let html = `
+        <div class="carousel-inner">
+    `;
+
+    // Create carousel items
+    items.forEach((item, index) => {
+        const activeClass = index === 0 ? 'active' : '';
+        html += `
+            <div class="carousel-item ${activeClass}">
+                <div class="row g-3">
+        `;
+
+        // Add movies to this slide
+        item.forEach(movie => {
+            const categoryName = movie.category?.name || 'Other';
+            const imdbRating = movie.imdb || '';
+
+            html += `
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="movie-card" onclick="window.location.href='detail.html?id=${movie.id}'">
+                        <img src="${movie.cover_url}"
+                             alt="${movie.title}">
+                        <div class="movie-info" style="pad">
+                            <div class="movie-category">${categoryName}</div>
+                            <div class="movie-rating">⭐ ${imdbRating}</div>
+                            <div class="movie-title">${movie.title}</div>
                         </div>
-                    `;
-            })
-        }
-        categoryRow+="</div></div>"
-        result += categoryRow;
+                    </div>
+                </div>
+            `;
+        });
+        html += `
+                </div>
+            </div>
+        `;
     });
-    container.innerHTML = result;
+
+    html += `
+                </div>
+
+                ${items.length > 1 ? `
+                <button class="carousel-control-prev" type="button" data-bs-target="#favorites-carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#favorites-carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                ` : ''}
+    `;
+
+    container.innerHTML = html;
+}
+
+function itemsArray(array, size) {
+    const items = [];
+    for (let i = 0; i < array.length; i += size) {
+        items.push(array.slice(i, i + size));
+    }
+    return items;
 }
 
 getFavorites();
-
-
-getFavorites();
-
 
