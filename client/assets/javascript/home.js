@@ -8,6 +8,7 @@ const MOVIES_URL = `${API_BASE}/movies`
 // check session
 if (!localStorage.getItem("token")) window.location.href = "/Filmalisa/admin/pages/login.html";
 
+const watchButton = document.querySelector(".watch-button");
 
 // Load Action Movies
 loadMoviesAction();
@@ -17,6 +18,22 @@ loadMoviesComedy();
 
 function openDetailOfMovie(id){
     window.location.href = `/Filmalisa/client/pages/detail.html?id=${id}`;
+}
+
+
+function setCarouselSide(movie, carouselItems) {
+    let watchUrl = movie.watch_url;
+    let row = `
+                <div class="carousel-items-part">
+                    <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                        <img src="${movie.cover_url}" class="d-block w-100 carousel-custom-img" alt="${movie.title}">
+                    </div>
+                </div>
+                `;
+    watchButton.addEventListener("click", () => {
+        window.open(watchUrl, '_blank');
+    })
+    carouselItems.innerHTML += row;
 }
 
 // Load movies
@@ -32,9 +49,13 @@ function loadMoviesAction() {
         .then(resp => {
             console.log("Movies loaded:", resp);
 
+            let carouselItems = document.querySelector(".carousel-items-part");
             let actionGroup = document.querySelector(".action-card-group .row");
             let actionResult=  ""
             resp.data.forEach((movie) => {
+                // movies carousel
+                setCarouselSide(movie, carouselItems);
+
                 switch (movie.category.name) {
                     case 'Action': {
                         let row = `<div class="col">
