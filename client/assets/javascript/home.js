@@ -4,24 +4,21 @@ console.log("Home page started");
 
 const API_BASE = "https://api.sarkhanrahimli.dev/api/filmalisa";
 const MOVIES_URL = `${API_BASE}/movies`
+const CATEGORY_URL = `${API_BASE}/categories`
+
 
 // check session
 if (!localStorage.getItem("token")) window.location.href = "/Filmalisa/admin/pages/login.html";
 
 const watchButton = document.querySelector(".watch-button");
 
-// Load Action Movies
-loadMoviesAction();
-// Load Comedy Movies
-loadMoviesComedy();
+// Load Carousel Movies
+loadMoviesForCarousel();
 
+// Load Category Movies;
+loadCategoryMovies();
 
-function openDetailOfMovie(id){
-    window.location.href = `/Filmalisa/client/pages/detail.html?id=${id}`;
-}
-
-
-function setCarouselSide(movie, carouselItems) {
+function setCarouselSide(movie, index, carouselItems) {
     let watchUrl = movie.watch_url;
     let row = `
                 <div class="carousel-items-part">
@@ -37,7 +34,7 @@ function setCarouselSide(movie, carouselItems) {
 }
 
 // Load movies
-function loadMoviesAction() {
+function loadMoviesForCarousel() {
     const token = localStorage.getItem("token");
     if (!token) return;
 
@@ -48,80 +45,93 @@ function loadMoviesAction() {
         .then(response => response.json())
         .then(resp => {
             console.log("Movies loaded:", resp);
-
             let carouselItems = document.querySelector(".carousel-items-part");
-            let actionGroup = document.querySelector(".action-card-group .row");
-            let actionResult=  ""
-            resp.data.forEach((movie) => {
-                // movies carousel
-                setCarouselSide(movie, carouselItems);
+            resp.data.forEach((movie,index) => {
 
-                switch (movie.category.name) {
-                    case 'Action': {
-                        let row = `<div class="col">
-                        <div class="card movie-card position-relative border-0" style="cursor: pointer;"
-                         onclick="openDetailOfMovie(${movie.id})">
-                            <img src="${movie.cover_url}" style="width:292px;height:440px" class="card-img-top comedy-category-card-img"
-                                 alt="...">
-                                <div class="card-body position-absolute border-0" style="bottom:0px">
-                                    <h5 class="card-title comedy-category-card-title" style="color:#0FEFFD; font-size:14px;font-weight:400">Sci-Fi &amp;
-                                        ${movie.category.name}</h5>
-                                    <p class="card-text" ><img src="../assets/images/favorite/rating.png"
-                                                               style="object-fit: cover">
-                                    </p>
-                                    <p class="card-text comedy-category-card-title-text" style="font-size:32px">
-                                        <small class="text-white">${movie.title}</small></p>
-                                </div>
-                            </div>
-                        </div>`;
-                        actionResult += row;
-                    }
-                }
+                // load movies into carousel
+                setCarouselSide(movie, index, carouselItems);
             });
-            actionGroup.innerHTML = actionResult;
 
         })
         .catch(error => console.error("Error loading movies:", error));
 }
-// Load comedy movies
-function loadMoviesComedy() {
-    const token = localStorage.getItem("token");
-    if (!token) return;
 
-    fetch(MOVIES_URL, {
-        method: "GET",
-        headers: {"Authorization": `Bearer ${token}`}
-    })
-        .then(response => response.json())
-        .then(resp => {
-            console.log("Movies loaded:", resp);
+// Load Categories Movies
+function loadCategoryMovies() {
+    try {
+        const token = localStorage.getItem("token");
+        if (!token) return;
 
-            let comedyGroup = document.querySelector(".comedy-card-group .row");
-            let comedyResult=  ""
-            resp.data.forEach((movie) => {
-                switch (movie.category.name) {
-                    case 'Comedy': {
-                        let row = `<div class="col">
-                        <div class="card position-relative border-0" style="cursor: pointer;" onclick="window.location.href='detail.html?id=${movie.id}'">
-                            <img src="${movie.cover_url}" style="width:504px;height:736px" class="card-img-top comedy-category-card-img"
-                                 alt="...">
-                                <div class="card-body position-absolute border-0" style="bottom:0px">
-                                    <h5 class="card-title comedy-category-card-title" style="color:#0FEFFD; font-size:14px;font-weight:400">Sci-Fi &amp;
-                                        ${movie.category.name}</h5>
-                                    <p class="card-text" ><img src="../assets/images/favorite/rating.png"
-                                                               style="object-fit: cover">
+        fetch(`${CATEGORY_URL}`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json()}
+        ).then(data => {
+            if (!data.result) throw new Error("Category Movies failed ");
+
+            console.log("Category Movies:", data);
+            renderFavorites(data.data);
+        }).catch(error => {
+            console.error("Error:", error);
+        });
+    } catch (err) {
+        console.error("Xəta:", err);
+    }
+}
+
+function renderFavorites(favorites) {
+    let container = document.querySelector(".category-movies");
+
+    let result = "";
+
+    favorites.forEach(category => {
+        let categoryRow = "";
+        if(category.movies.length>0) {
+            categoryRow = `
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item text-white active favorite-breadcrumb"
+                        style="font-size: 35px;font-weight: 500; padding-top: 162px"
+                        aria-current="page">
+                        ${category.name}
+                        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.7285 9.20767L20.9902 16.4694L13.7285 23.7311L12.7275 22.7301L18.9883 16.4694L18.458 15.9381L12.7275 10.2086L13.7285 9.20767Z"
+                                  fill="#0FEFFD" stroke="white" stroke-width="1.5"/>
+                        </svg>
+                    </li>
+                </ol>
+            </nav>
+            <div class="card-group favorite-card-group flex-wrap border-0">
+                <div class="row row-cols-2 row-cols-lg-2 row-cols-sm-2 row-cols-md-2 g-3 border-0">`;
+            category.movies.forEach((movieRow) => {
+                categoryRow +=
+                    `
+                        <div class="col"> 
+                            <div class="card position-relative border-0" onclick="window.location.href='detail.html?id=${movieRow.id}'">
+                                <img src="${movieRow.cover_url}" style="width:292px; height:440px;cursor: pointer" class="card-img-top favorite-card-img"
+                                     alt="...">
+                                <div class="card-body position-absolute border-0" style="bottom:0">
+                                    <h5 class="card-title favorite-card-title" style="color:#0FEFFD; font-size:14px;font-weight:400">
+                                    ${movieRow.title}
+                                    </h5>
+                                    <p class="card-text" >⭐ ${movieRow.imdb}
                                     </p>
-                                    <p class="card-text comedy-category-card-title-text" style="font-size:32px">
-                                        <small class="text-white">${movie.title}</small></p>
+                                    <p class="card-text favorite-card-title-text" style="font-size:24px">
+                                        <small class="text-white">${movieRow.title}</small></p>
                                 </div>
                             </div>
-                        </div>`;
-                        comedyResult+=row;
-                    }
-                }
+                        </div>
+                    `;
             });
-            comedyGroup.innerHTML = comedyResult;
-
-        })
-        .catch(error => console.error("Error loading movies:", error));
+        }
+        categoryRow+="</div></div>"
+        result += categoryRow;
+    });
+    container.innerHTML = result;
 }
