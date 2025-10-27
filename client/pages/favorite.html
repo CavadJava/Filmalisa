@@ -17,17 +17,17 @@
     <a href="/Filmalisa/index.html" class="active-icon">
         <i class="fas icon-logo-custom"></i>
     </a>
-    <a href="/Filmalisa/client/pages/home.html" class="home-page">
+    <a href="/Filmalisa/client/pages/home.html" class="home-page active-page">
         <i class="fas icon-home-custom"></i>
     </a>
-    <a href="/Filmalisa/client/pages/search-panel.html" class="search-page">
+    <a href="/Filmalisa/client/pages/search-panel.html" class="search-page active-page">
         <i class="fas icon-home3-custom"></i>
     </a>
-    <a href="/Filmalisa/client/pages/account.html" class="account-page">
+    <a href="/Filmalisa/client/pages/account.html" class="account-page active-page">
         <i class="fas icon-home4-custom"></i>
     </a>
     <div class="icon-separator"></div>
-    <a href="/Filmalisa/client/pages/favorite.html" class="favorite-page">
+    <a href="/Filmalisa/client/pages/favorite.html" class="favorite-page active-page">
         <i class="fas icon-home5-custom"></i>
     </a>
 </div>
@@ -53,5 +53,24 @@
     </div>
 </div>
 <script src="../assets/javascript/favorite.js"></script>
+<script>
+    const links = document.querySelectorAll(".active-page");
+
+// Aktiv səhifəni tap və rənglə
+const currentPath = window.location.pathname.split("/").pop();
+links.forEach(link => {
+  if (link.href.includes(currentPath)) {
+    link.classList.add("active");
+  }
+});
+
+// Klik olanda dəyiş
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    links.forEach(l => l.classList.remove("active"));
+    link.classList.add("active");
+  });
+});
+</script>
 </body>
 </html>

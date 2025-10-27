@@ -8,7 +8,7 @@
 }
 
 .icon-home-custom {
-    background-image: url(../../images/sidebar/home1.png);
+    background-image: url(../../images/sidebar/button1.png);
     background-repeat: no-repeat;
     background-position: center center;
     color: #FFFFFF;
@@ -69,14 +69,32 @@
     color: #fff;
     opacity: 1;
 }
+.sidebar .active-page {
+     filter: brightness(0) invert(1); 
+}
 
 .sidebar .active-icon {
     color: #d946ef;
     font-size: 2rem;
     margin-bottom: 1px;
 }
-.sidebar a.active-page {
-  opacity: 1;
-  color: #0FEFFD;
-  border-radius: 10px;
+
+
+.active-page.active {
+   filter: brightness(0) saturate(100%) invert(74%) sepia(94%) saturate(749%) hue-rotate(134deg) brightness(102%) contrast(103%);
 }
+
+.active-page {
+  filter: brightness(0) invert(1); /* Bütün ikonlar ağ */
+  transition: filter 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
