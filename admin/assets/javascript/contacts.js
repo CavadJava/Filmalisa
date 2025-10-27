@@ -27,19 +27,22 @@ loadContacts();
 // Auth
 setTimeout(auth,3000)
 
-// Handle Auth before login
-function auth(){
-    if (localStorage.getItem("role") !== "admin") {
-        localStorage.removeItem(`token`)
-        localStorage.removeItem(`role`)
-        window.location.href = "/Filmalisa/admin/pages/login.html";
-    }
-}
-
 // Setup event listeners - Event listener-ləri quraşdır
 const createBtn = document.querySelector('.createBtnOnModal');
 if (createBtn) {
     createBtn.addEventListener("click", handleCreateContact);
+}
+
+const btnLogout = document.querySelector('.btnLogout');
+if (btnLogout) {
+    btnLogout.addEventListener("click", logout);
+}
+// Handle logout
+function logout(){
+    localStorage.removeItem(`token`)
+    localStorage.removeItem(`role`)
+    localStorage.removeItem(`accountData`)
+    window.location.href = "/Filmalisa/admin/pages/login.html";
 }
 
 const updateBtn = document.querySelector('.updateBtnOnModal');
@@ -56,6 +59,15 @@ if (deleteBtn) {
 createModalEl.addEventListener('hidden.bs.modal', function () {
     document.getElementById('contactForm').reset();
 });
+
+// Handle Auth before login
+function auth(){
+    if (localStorage.getItem("role") !== "admin") {
+        localStorage.removeItem(`token`)
+        localStorage.removeItem(`role`)
+        window.location.href = "/Filmalisa/admin/pages/login.html";
+    }
+}
 
 // Load and display contacts - Bütün contact-ları yüklə və göstər
 function loadContacts() {

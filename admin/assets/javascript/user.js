@@ -14,11 +14,23 @@ userList();
 // Auth
 setTimeout(auth,3000)
 
+const btnLogout = document.querySelector('.btnLogout');
+if (btnLogout) {
+    btnLogout.addEventListener("click", logout);
+}
+// Handle logout
+function logout(){
+    localStorage.removeItem(`token`)
+    localStorage.removeItem(`role`)
+    window.location.href = "/Filmalisa/admin/pages/login.html";
+}
+
 // Handle Auth before login
 function auth(){
     if (localStorage.getItem("role") !== "admin") {
         localStorage.removeItem(`token`)
         localStorage.removeItem(`role`)
+        localStorage.removeItem(`accountData`)
         window.location.href = "/Filmalisa/admin/pages/login.html";
     }
 }

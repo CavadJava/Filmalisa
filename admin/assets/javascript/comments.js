@@ -57,6 +57,18 @@ if (createBtn) {
     createBtn.addEventListener("click", handleCreateComment);
 }
 
+const btnLogout = document.querySelector('.btnLogout');
+if (btnLogout) {
+    btnLogout.addEventListener("click", logout);
+}
+// Handle logout
+function logout(){
+    localStorage.removeItem(`token`)
+    localStorage.removeItem(`role`)
+    localStorage.removeItem(`accountData`)
+    window.location.href = "/Filmalisa/admin/pages/login.html";
+}
+
 // View modal üçün event listener lazım deyil - onclick ilə açılır
 const deleteBtn = document.querySelector('.deleteBtnOnModal');
 if (deleteBtn) {

@@ -39,6 +39,18 @@ function auth(){
     }
 }
 
+const btnLogout = document.querySelector('.btnLogout');
+if (btnLogout) {
+    btnLogout.addEventListener("click", logout);
+}
+// Handle logout
+function logout(){
+    localStorage.removeItem(`token`)
+    localStorage.removeItem(`role`)
+    localStorage.removeItem(`accountData`)
+    window.location.href = "/Filmalisa/admin/pages/login.html";
+}
+
 // Handle Categories
 function categories(){
     const token = localStorage.getItem("token");
