@@ -473,6 +473,22 @@ function openUpdateModal(movieId) {
                 option.selected = movie.actors.some(actor => actor.id == option.value);
             });
         }
+// Şəkli göstər (xətasız versiya)
+try {
+  const previewImg = document.querySelector("#moviePreviewImg");
+  if (previewImg) {
+    if (movie.cover_url && movie.cover_url.trim() !== "") {
+      previewImg.src = movie.cover_url;
+      previewImg.style.display = "block";
+    } else {
+      previewImg.style.display = "none";
+    }
+  }
+} catch (err) {
+  console.warn("Preview image error:", err);
+}
+
+
 
         // Show modal
         updateModalInstance.show();
@@ -631,3 +647,39 @@ function handleUpdateMovies() {
         alert("Error updating movie");
     });
 }
+
+// ---------- Create modal image preview  ----------
+(function setupCreatePreview(){
+  const createCoverInput = document.querySelector("#createMoviesModal .coverUrl");
+  const createPreviewImg = document.querySelector("#moviePreviewImgCreate");
+  const createModal = document.getElementById("createMoviesModal");
+
+  // Əgər elementlər yoxdursa heç nə etmir
+  if (!createPreviewImg) return;
+
+  
+  if (createCoverInput) {
+    createCoverInput.addEventListener("input", () => {
+      const url = createCoverInput.value.trim();
+      if (url) {
+       
+        createPreviewImg.src = url;
+      } else {
+        // default şəkilə qaytar (istəsən boş da qoy)
+        createPreviewImg.src = "../assets/images/no-image-icon-6.png";
+      }
+    });
+  }
+
+  // Modal bağlananda form və preview sıfırlansın
+  if (createModal) {
+    createModal.addEventListener("hidden.bs.modal", () => {
+      // reset form 
+      const form = document.getElementById('movieForm');
+      if (form) form.reset();
+
+      // preview-u defaulta qaytar
+      createPreviewImg.src = "../assets/images/no-image-ocon-6.png";
+    });
+  }
+})();
