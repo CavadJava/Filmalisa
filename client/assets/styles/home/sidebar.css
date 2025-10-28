@@ -84,15 +84,6 @@
    filter: brightness(0) saturate(100%) invert(74%) sepia(94%) saturate(749%) hue-rotate(134deg) brightness(102%) contrast(103%);
 }
 
-.active-page {
-  filter: brightness(0) invert(1); /* Bütün ikonlar ağ */
-  transition: filter 0.3s ease;
-}
-
-
-
-
-
 
 
 

@@ -53,24 +53,5 @@
     </div>
 </div>
 <script src="../assets/javascript/favorite.js"></script>
-<script>
-    const links = document.querySelectorAll(".active-page");
-
-// Aktiv səhifəni tap və rənglə
-const currentPath = window.location.pathname.split("/").pop();
-links.forEach(link => {
-  if (link.href.includes(currentPath)) {
-    link.classList.add("active");
-  }
-});
-
-// Klik olanda dəyiş
-links.forEach(link => {
-  link.addEventListener("click", () => {
-    links.forEach(l => l.classList.remove("active"));
-    link.classList.add("active");
-  });
-});
-</script>
 </body>
 </html>
