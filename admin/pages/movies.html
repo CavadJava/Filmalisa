@@ -174,58 +174,59 @@
                         </div>
                         <div class="modal-body">
                             <div class="text-center mb-3">
-  <img id="moviePreviewImgCreate" src="/admin/assets/images/no-image-icon-6.png" alt="Movie cover" class="img-fluid rounded shadow"
-       style="max-height: 250px;">
-</div>
+                                <img id="moviePreviewImgCreate" src="/admin/assets/images/no-image-icon-6.png"
+                                     alt="Movie cover" class="img-fluid rounded shadow"
+                                     style="max-height: 250px;">
+                            </div>
 
                             <form id="movieForm">
-                                    <div class="mb-3">
-                                        <input class="form-control movie-input title" type="text" id="title" name="title"
-                                               placeholder="Title" required>
-                                    </div>
-                                    <div class="mb-3">
+                                <div class="mb-3">
+                                    <input class="form-control movie-input title" type="text" id="title" name="title"
+                                           placeholder="Title" required>
+                                </div>
+                                <div class="mb-3">
                                     <textarea class="form-control movie-input movie-textarea overview" id="overview"
                                               name="overview" placeholder="Overview" rows="3" required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control movie-input coverUrl" type="url" id="coverUrl"
+                                           name="coverUrl" placeholder="Cover URL" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control movie-input fragmanUrl" type="url" id="fragmanUrl"
+                                           name="fragmanUrl" placeholder="Trailer URL (YouTube Embed)" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control movie-input watchUrl" type="url" id="watchUrl"
+                                           name="watchUrl" placeholder="Watch URL" required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <input class="form-control movie-input imdbUrl" type="text" id="imdbUrl"
+                                               name="imdbUrl" placeholder="IMDB Rating" required>
                                     </div>
-                                    <div class="mb-3">
-                                        <input class="form-control movie-input coverUrl" type="url" id="coverUrl"
-                                               name="coverUrl" placeholder="Cover URL" required>
+                                    <div class="col-md-6 mb-3">
+                                        <input class="form-control movie-input runtime" type="number" id="runtime"
+                                               name="runtime" placeholder="Runtime (minutes)" required>
                                     </div>
-                                    <div class="mb-3">
-                                        <input class="form-control movie-input fragmanUrl" type="url" id="fragmanUrl"
-                                               name="fragmanUrl" placeholder="Trailer URL (YouTube Embed)" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <input class="form-control movie-input watchUrl" type="url" id="watchUrl"
-                                               name="watchUrl" placeholder="Watch URL" required>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <input class="form-control movie-input imdbUrl" type="text" id="imdbUrl"
-                                                   name="imdbUrl" placeholder="IMDB Rating" required>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <input class="form-control movie-input runtime" type="number" id="runtime"
-                                                   name="runtime" placeholder="Runtime (minutes)" required>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="category" class="text-white">Category</label>
-                                        <select class="form-select movie-input category" id="category" required>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="actor" class="text-white">Actors</label>
-                                        <select class="form-select movie-input actor" id="actor" multiple required>
-                                        </select>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input adult" type="checkbox" id="checkbox" name="checkbox"
-                                               value="true">
-                                        <label class="form-check-label text-white" for="checkbox">
-                                            Adult Content
-                                        </label>
-                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="category" class="text-white">Category</label>
+                                    <select class="form-select movie-input category" id="category" required>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="actor" class="text-white">Actors</label>
+                                    <select class="form-select movie-input actor" id="actor" multiple required>
+                                    </select>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input adult" type="checkbox" id="checkbox" name="checkbox"
+                                           value="true">
+                                    <label class="form-check-label text-white" for="checkbox">
+                                        Adult Content
+                                    </label>
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer border-0">
@@ -236,7 +237,6 @@
                     </div>
                 </div>
             </div>
- 
 
 
             <!-- Update movies Modal -->
@@ -248,13 +248,14 @@
                             <button type="button" class="btn-close btn-close-white closeBtnOnUpdate"
                                     data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
- 
+
                         <div class="modal-body">
-        <div class="text-center mb-3">
-    <img id="moviePreviewImg" src="" alt="Movie cover" class="img-fluid rounded" style="max-height: 250px; display: none;">
-</div>
+                            <div class="text-center mb-3">
+                                <img id="moviePreviewImg" src="" alt="Movie cover" class="img-fluid rounded"
+                                     style="max-height: 250px; display: none;">
+                            </div>
                             <form id="movieForm2">
-  
+
                                 <div class="mb-3">
                                     <input class="form-control movie-input title" type="text" id="title2" name="title"
                                            placeholder="Title" required>
@@ -308,7 +309,7 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                             <button type="button" form="movieForm" class="btn btn-primary updateBtnOnModal">Submit
                             </button>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -340,6 +341,6 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
- <script src="../assets/javascript/movies.js"></script> 
+<script src="../assets/javascript/movies.js"></script>
 </body>
 </html>

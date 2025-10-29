@@ -473,22 +473,21 @@ function openUpdateModal(movieId) {
                 option.selected = movie.actors.some(actor => actor.id == option.value);
             });
         }
-// Şəkli göstər (xətasız versiya)
-try {
-  const previewImg = document.querySelector("#moviePreviewImg");
-  if (previewImg) {
-    if (movie.cover_url && movie.cover_url.trim() !== "") {
-      previewImg.src = movie.cover_url;
-      previewImg.style.display = "block";
-    } else {
-      previewImg.style.display = "none";
-    }
-  }
-} catch (err) {
-  console.warn("Preview image error:", err);
-}
 
-
+        // Şəkli göstər (xətasız versiya)
+        try {
+            const previewImg = document.querySelector("#moviePreviewImg");
+            if (previewImg) {
+                if (movie.cover_url && movie.cover_url.trim() !== "") {
+                    previewImg.src = movie.cover_url;
+                    previewImg.style.display = "block";
+                } else {
+                    previewImg.style.display = "none";
+                }
+            }
+        } catch (err) {
+            console.warn("Preview image error:", err);
+        }
 
         // Show modal
         updateModalInstance.show();
@@ -648,11 +647,16 @@ function handleUpdateMovies() {
     });
 }
 
-// ---------- Create modal image preview  ----------
-(function setupCreatePreview(){
-  const createCoverInput = document.querySelector("#createMoviesModal .coverUrl");
-  const createPreviewImg = document.querySelector("#moviePreviewImgCreate");
-  const createModal = document.getElementById("createMoviesModal");
+
+handleImagePreviewOnModal("#createMoviesModal .coverUrl","#moviePreviewImgCreate","createMoviesModal")
+
+handleImagePreviewOnModal("#updateMoviesModal .coverUrl","#moviePreviewImg","updateMoviesModal")
+
+// Handle modal image preview
+function handleImagePreviewOnModal(coverInput,previewImg,modalName){
+  const createCoverInput = document.querySelector(coverInput);
+  const createPreviewImg = document.querySelector(previewImg);
+  const createModal = document.getElementById(modalName);
 
   // Əgər elementlər yoxdursa heç nə etmir
   if (!createPreviewImg) return;
@@ -682,4 +686,4 @@ function handleUpdateMovies() {
       createPreviewImg.src = "../assets/images/no-image-ocon-6.png";
     });
   }
-})();
+}
