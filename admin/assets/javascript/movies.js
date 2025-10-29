@@ -474,6 +474,21 @@ function openUpdateModal(movieId) {
             });
         }
 
+        // Şəkli göstər (xətasız versiya)
+        try {
+            const previewImg = document.querySelector("#moviePreviewImg");
+            if (previewImg) {
+                if (movie.cover_url && movie.cover_url.trim() !== "") {
+                    previewImg.src = movie.cover_url;
+                    previewImg.style.display = "block";
+                } else {
+                    previewImg.style.display = "none";
+                }
+            }
+        } catch (err) {
+            console.warn("Preview image error:", err);
+        }
+
         // Show modal
         updateModalInstance.show();
     })
@@ -630,4 +645,45 @@ function handleUpdateMovies() {
         console.error("Error updating movie:", error);
         alert("Error updating movie");
     });
+}
+
+
+handleImagePreviewOnModal("#createMoviesModal .coverUrl","#moviePreviewImgCreate","createMoviesModal")
+
+handleImagePreviewOnModal("#updateMoviesModal .coverUrl","#moviePreviewImg","updateMoviesModal")
+
+// Handle modal image preview
+function handleImagePreviewOnModal(coverInput,previewImg,modalName){
+  const createCoverInput = document.querySelector(coverInput);
+  const createPreviewImg = document.querySelector(previewImg);
+  const createModal = document.getElementById(modalName);
+
+  // Əgər elementlər yoxdursa heç nə etmir
+  if (!createPreviewImg) return;
+
+  
+  if (createCoverInput) {
+    createCoverInput.addEventListener("input", () => {
+      const url = createCoverInput.value.trim();
+      if (url) {
+       
+        createPreviewImg.src = url;
+      } else {
+        // default şəkilə qaytar (istəsən boş da qoy)
+        createPreviewImg.src = "../assets/images/no-image-icon-6.png";
+      }
+    });
+  }
+
+  // Modal bağlananda form və preview sıfırlansın
+  if (createModal) {
+    createModal.addEventListener("hidden.bs.modal", () => {
+      // reset form 
+      const form = document.getElementById('movieForm');
+      if (form) form.reset();
+
+      // preview-u defaulta qaytar
+      createPreviewImg.src = "../assets/images/no-image-ocon-6.png";
+    });
+  }
 }
