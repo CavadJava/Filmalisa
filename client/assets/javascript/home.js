@@ -58,6 +58,7 @@ function setCarouselSide(movie, index, carouselInner, indicators) {
     const item = document.createElement("div");
     item.className = `carousel-item ${index === 0 ? "active" : ""}`;
 
+
     item.innerHTML =`
         <img src="${movie.cover_url}" class="d-block w-100 carousel-custom-img" alt="${movie.title}">
             <div class="carousel-caption d-flex flex-column justify-content-center align-items-start text-start"
@@ -68,11 +69,16 @@ function setCarouselSide(movie, index, carouselInner, indicators) {
                 <h5 class="hero-title" style="font-size:40px; font-weight:700;">${movie.title}</h5>
                 <p class="hero-detail"
                    style="max-width:600px; font-size:16px;">${movie.description || ""}</p>
-                <a class="btn watch-button mt-3" target="_blank" href="${movie.watch_url || "#"}"
+                <a class="btn watch-button mt-3" 
+               
+                target="${(movie.watch_url.includes("http") || movie.watch_url.includes("www.")) ? "_blank":'#'}"
+                href="${(movie.watch_url.includes("http") || movie.watch_url.includes("www.")) ? movie.watch_url:'#'}"
+                
                 style="background-color:#0FEFFD; color:#000; border:none; font-weight:600;" onclick="window.open(watchUrl, '_blank');">Watch now
             </a>
         </div>
     `;
+    document.querySelector(".watch-button")
     carouselInner.appendChild(item);
 }
 
