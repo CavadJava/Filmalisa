@@ -60,7 +60,7 @@ function displayMovies(movies) {
                 <div class="card position-relative border-0" style="background-color: #1a1a1a; cursor: pointer;" onclick="window.location.href='detail.html?id=${movie.id}'">
                     <img src="${movie.cover_url}" style="width:292px; height:440px" class="card-img-top favorite-card-img"
                          alt="...">
-                    <div class="card-body position-absolute border-0" style="bottom:0px">
+                    <div class="card-body  border-0" >
                         <h5 class="card-title favorite-card-title" style="color:#0FEFFD; font-size:14px;font-weight:400">
                         ${movie.title}
                         </h5>
