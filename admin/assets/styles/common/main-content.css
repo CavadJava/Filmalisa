@@ -7,6 +7,9 @@
     height: 39px;
 
 }
+.header .header-left {
+    font-family: "Raleway" sans-serif;
+}
 .crop {
     max-width: 200px;
     white-space: nowrap;
@@ -44,4 +47,5 @@ tbody button {
     font-style: medium;
     font-size: 12px;
     line-height: 13px;
+    font-family: "Raleway" sans-serif;
 }
