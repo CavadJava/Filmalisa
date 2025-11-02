@@ -18,50 +18,13 @@ loadMoviesForCarousel();
 // Load Category Movies;
 loadCategoryMovies();
 
-// function setCarouselSide(movie, index, carouselItems) {
-//     let watchUrl = movie.watch_url;
-//     let row = `
-//                 <div class="carousel-items-part">
-//                     <div class="carousel-item ${index === 0 ? 'active' : ''}">
-//                         <img src="${movie.cover_url}" class="d-block w-100 carousel-custom-img" alt="${movie.title}">
-//                     </div>
-//                 </div>
-//                 `;
-//     watchButton.addEventListener("click", () => {
-//         window.open(watchUrl, '_blank');
-//     })
-//     carouselItems.innerHTML += row;
-// }
-
-// // Load movies
-// function loadMoviesForCarousel() {
-//     const token = localStorage.getItem("token");
-//     if (!token) return;
-
-//     fetch(MOVIES_URL, {
-//         method: "GET",
-//         headers: {"Authorization": `Bearer ${token}`}
-//     })
-//         .then(response => response.json())
-//         .then(resp => {
-//             console.log("Movies loaded:", resp);
-//             let carouselItems = document.querySelector(".carousel-items-part");
-//             resp.data.forEach((movie,index) => {
-
-//                 // load movies into carousel
-//                 setCarouselSide(movie, index, carouselItems);
-//             });
-
-//         })
-//         .catch(error => console.error("Error loading movies:", error));
-// }
 function loadMoviesForCarousel() {
     const token = localStorage.getItem("token");
     if (!token) return;
 
     fetch(MOVIES_URL, {
         method: "GET",
-        headers: { "Authorization": `Bearer ${token}` }
+        headers: {"Authorization": `Bearer ${token}`}
     })
         .then(response => response.json())
         .then(resp => {
@@ -95,20 +58,21 @@ function setCarouselSide(movie, index, carouselInner, indicators) {
     const item = document.createElement("div");
     item.className = `carousel-item ${index === 0 ? "active" : ""}`;
 
-    item.innerHTML = `
-        
-    <img src="${movie.cover_url}" class="d-block w-100 carousel-custom-img" alt="${movie.title}">
-    <div class="carousel-caption d-flex flex-column justify-content-center align-items-start text-start" 
-         style="top:0; left:0; width:100%; height:100%; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.3));">
-        <p class="hero-badge" style="color:#0FEFFD; font-size:18px; font-weight:500;">${movie.category?.name || "Unknown Genre"}</p>
-        <div class="hero-rating mb-2">${generateStars(movie.imdb || 5)}</div>
-        <h5 class="hero-title" style="font-size:40px; font-weight:700;">${movie.title}</h5>
-        <p class="hero-detail" style="max-width:600px; font-size:16px;">${movie.description || "No description available"}</p>
-        <a class="btn watch-button mt-3" target="_blank" href="${movie.watch_url || "#"}"
-           style="background-color:#0FEFFD; color:#000; border:none; font-weight:600;">Watch now</a>
-    </div>
+    item.innerHTML =`
+        <img src="${movie.cover_url}" class="d-block w-100 carousel-custom-img" alt="${movie.title}">
+            <div class="carousel-caption d-flex flex-column justify-content-center align-items-start text-start"
+                 style="top:0; left:0; width:100%; height:100%; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.3));">
+                <p class="hero-badge"
+                   style="color:#0FEFFD; font-size:18px; font-weight:500;">${movie.category?.name || "Unknown Genre"}</p>
+                <div class="hero-rating mb-2">${generateStars(movie.imdb || 5)}</div>
+                <h5 class="hero-title" style="font-size:40px; font-weight:700;">${movie.title}</h5>
+                <p class="hero-detail"
+                   style="max-width:600px; font-size:16px;">${movie.description || ""}</p>
+                <a class="btn watch-button mt-3" target="_blank" href="${movie.watch_url || "#"}"
+                style="background-color:#0FEFFD; color:#000; border:none; font-weight:600;" onclick="window.open(watchUrl, '_blank');">Watch now
+            </a>
+        </div>
     `;
-
     carouselInner.appendChild(item);
 }
 
@@ -134,10 +98,11 @@ function loadCategoryMovies() {
                 "Authorization": `Bearer ${token}`,
             },
         }).then(response => {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json()
             }
-            return response.json()}
         ).then(data => {
             if (!data.result) throw new Error("Category Movies failed ");
 
@@ -158,7 +123,26 @@ function renderFavorites(favorites) {
 
     favorites.forEach(category => {
         let categoryRow = "";
-        if(category.movies.length>0) {
+        if (category.movies.length > 0) {
+            let movieGridOrder = 1;
+            switch (category.movies.length){
+                case 1:{
+                    movieGridOrder = 1;
+                    break;
+                }
+                case 2:{
+                    movieGridOrder = 2;
+                    break;
+                }
+                case 3:{
+                    movieGridOrder = 2;
+                    break;
+                }
+                default: {
+                    movieGridOrder = 4;
+                    break;
+                }
+            }
             categoryRow = `
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -174,12 +158,14 @@ function renderFavorites(favorites) {
                 </ol>
             </nav>
             <div class="card-group favorite-card-group flex-wrap border-0">
-                <div class="row row-cols-2 row-cols-lg-2 row-cols-sm-2 row-cols-md-2 g-3 border-0">`;
+                <div class="row row-cols-1 row-cols-lg-${movieGridOrder} row-cols-sm-2 row-cols-md-2 g-3 border-0">`;
             category.movies.forEach((movieRow) => {
                 categoryRow +=
                     `
                         <div class="col"> 
-                            <div class="card position-relative border-0" onclick="window.location.href='detail.html?id=${movieRow.id}'">
+                            <div class="card position-relative border-0" onclick="window.location.href='detail.html?id=${movieRow.id}'"
+                            style="background-color: #1A1A1A"
+                            >
                                 <img src="${movieRow.cover_url}" style="width:292px; height:440px;cursor: pointer" class="card-img-top favorite-card-img"
                                      alt="...">
                                 <div class="card-body position-absolute border-0" style="bottom:0">
@@ -196,7 +182,7 @@ function renderFavorites(favorites) {
                     `;
             });
         }
-        categoryRow+="</div></div>"
+        categoryRow += "</div></div>"
         result += categoryRow;
     });
     container.innerHTML = result;
