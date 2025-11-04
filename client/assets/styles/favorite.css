@@ -21,12 +21,14 @@ body {
 .movie-card {
   position: relative;
   width: 100%;
-  max-width:  504px;
-  height: 736px;
+  /* max-width:  504px;
+  height: 736px; */
+  aspect-ratio: 2/3;
   overflow: hidden;
   border-radius: 12px;
   cursor: pointer;
   transition: transform 0.3s ease;
+  margin-left: 25px;
 }
 
 .movie-card img {
@@ -37,10 +39,10 @@ body {
   filter: brightness(0.8);
 }
 
-.movie-card:hover img {
+/* .movie-card:hover img {
   transform: scale(1.05);
   filter: brightness(0.5);
-}
+} */
 
 .movie-info {
   position: absolute;
@@ -49,6 +51,14 @@ body {
   width: 100%;
   padding: 15px;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+   transition: transform 0.4s ease, opacity 0.4s ease;
+  transform: translateY(0);
+  opacity: 1;
+}
+.movie-info:hover {
+  transform: translateY(-20px); /* Yuxarı qalxır */
+  opacity: 1;
+
 }
 
 .movie-info h3 {

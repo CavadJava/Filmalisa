@@ -58,7 +58,7 @@ function renderFavorites(movies) {
             const imdbRating = movie.imdb || '';
 
             html += `
-                <div class="col-6 col-md-4 col-lg-2">
+                <div class="col-6 col-md-4 col-lg-3">
                     <div class="movie-card" onclick="window.location.href='detail.html?id=${movie.id}'">
                         <img src="${movie.cover_url}"
                              alt="${movie.title}">
